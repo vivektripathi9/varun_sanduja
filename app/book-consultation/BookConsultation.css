@@ -1,0 +1,212 @@
+.consultation-page {
+  width: 100%;
+  min-height: calc(100vh - 80px); /* Adjust based on navbar height */
+  position: relative;
+  overflow-x: hidden;
+  isolation: isolate;
+
+  background: linear-gradient(
+    135deg,
+    rgba(1, 16, 45, 0.98) 0%,
+    rgba(3, 25, 65, 0.95) 45%,
+    rgba(1, 16, 45, 0.98) 100%
+  );
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.consultation-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 50%,
+    rgba(15, 143, 255, 0.15),
+    transparent 60%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.consultation-circuit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 600px;
+  height: 100%;
+  opacity: 0.08;
+  background-image: linear-gradient(#4fa3ff 1px, transparent 1px),
+    linear-gradient(90deg, #4fa3ff 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.consultation-container {
+  width: 100%;
+  max-width: var(--layout-max-width, 1400px);
+  margin: 0 auto;
+  padding: clamp(40px, 6vh, 80px) clamp(20px, 5vw, 60px);
+  position: relative;
+  z-index: 2;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(40px, 6vw, 80px);
+}
+
+.consultation-info {
+  flex: 1;
+  max-width: 580px;
+}
+
+.consultation-badge {
+  display: inline-block;
+  padding: 8px 18px;
+  background: rgba(243, 180, 0, 0.15);
+  border: 1px solid rgba(243, 180, 0, 0.3);
+  border-radius: 99px;
+  color: #f3b400;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+.consultation-title {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  color: #ffffff;
+}
+
+.consultation-title span {
+  color: #f3b400;
+  display: block;
+}
+
+.consultation-desc {
+  font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 40px;
+}
+
+.consultation-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.feature-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(243, 180, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.text-accent {
+  color: #f3b400;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.4;
+}
+
+/* Calendly Section */
+.consultation-calendly-wrapper {
+  flex: 1;
+  max-width: 650px;
+  width: 100%;
+}
+
+.calendly-glass-card {
+  position: relative;
+  background: rgba(4, 15, 32, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 10px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+/* Inner glow effect */
+.calendly-glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(243, 180, 0, 0.15),
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.calendly-iframe {
+  border-radius: 16px;
+  background: #ffffff; /* Calendly is usually white, this prevents weird transparent issues */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .consultation-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .consultation-info {
+    max-width: 100%;
+  }
+
+  .consultation-features {
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 640px) {
+  .consultation-features {
+    grid-template-columns: 1fr;
+  }
+}

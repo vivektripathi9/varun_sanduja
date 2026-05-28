@@ -43,12 +43,12 @@ const programs = [
 const stats = [
   {
     icon: "cap",
-    value: "1000+",
+    value: "10000+",
     label: "Students Mentored",
   },
   {
     icon: "schoolStat",
-    value: "150+",
+    value: "400+",
     label: "Schools Associated",
   },
   {
@@ -58,16 +58,9 @@ const stats = [
   },
   {
     icon: "people",
-    value: "5+",
+    value: "14+",
     label: "Years of Impact",
   },
-] as const;
-
-const projectThumbs = [
-  { label: "Rover build", src: "/project-rover.jpg" },
-  { label: "Robotic arm", src: "/project-arm.jpg" },
-  { label: "Drone project", src: "/project-drone.jpg" },
-  { label: "Circuit lab", src: "/project-circuit.jpg" },
 ] as const;
 
 function ProgramIcon({ name }: { name: (typeof programs)[number]["icon"] }) {
@@ -83,11 +76,7 @@ function ProgramIcon({ name }: { name: (typeof programs)[number]["icon"] }) {
   switch (name) {
     case "monitor":
       return (
-        <svg viewBox="0 0 40 40" width="56" height="56" aria-hidden>
-          <rect x="6" y="8" width="28" height="20" rx="2" {...common} />
-          <path d="M14 32h12M20 28v4" {...common} />
-          <path d="M12 16h4M12 20h10M12 24h7" stroke="#64748b" strokeWidth="1.4" strokeLinecap="round" />
-        </svg>
+        <img src="/robot-arm.png" alt="Robotics Icon" style={{ width: 56, height: 56, objectFit: 'contain', filter: 'brightness(0) invert(1) opacity(0.85)' }} aria-hidden />
       );
     case "chat":
       return (
@@ -331,38 +320,14 @@ export function ProgramsShowcaseSection() {
         </div>
 
         <aside className="programs-showcase-sidebar">
-          <h2 className="programs-sidebar-title">
-            Featured <span className="programs-showcase-title-accent">Projects</span>
-          </h2>
-
-          <ul className="programs-project-grid">
-            {projectThumbs.map((p) => (
-              <li key={p.label}>
-                <Image
-                  src={p.src}
-                  alt={p.label}
-                  width={320}
-                  height={240}
-                  className="programs-project-thumb"
-                />
-              </li>
-            ))}
-          </ul>
-
-          <Link href="/projects" className="programs-view-more">
-            View More Projects <span aria-hidden>→</span>
-          </Link>
-
           <div className="programs-cta-box">
             <div className="programs-cta-copy">
-              <h3 className="programs-cta-heading">Let&apos;s Build the Future Together!</h3>
+              <h3 className="programs-cta-heading">Screen to Creator Course</h3>
               <p className="programs-cta-text">
-                Whether you are a student, parent, or school—we are here to help you with the
-                right STEM guidance and solutions.
+                Transform from a passive screen consumer into an active creator. Learn robotics, coding, and innovation in our flagship program.
               </p>
-              <Link href="/book-consultation" className="programs-cta-btn">
-                <CalendarIcon />
-                Book a Free Consultation
+              <Link href="/courses/screen-to-creator" className="programs-cta-btn">
+                Explore Course <span aria-hidden>→</span>
               </Link>
             </div>
             <div className="programs-cta-art">

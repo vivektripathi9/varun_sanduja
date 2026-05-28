@@ -23,17 +23,14 @@ export function Footer() {
               <li><Link href="/live-classes">Live Classes</Link></li>
               <li><Link href="/school-solutions">School Solutions</Link></li>
               <li><Link href="/camps">Camps</Link></li>
-              <li><Link href="/store">Store</Link></li>
             </ul>
           </div>
 
           {/* Resources Column */}
           <div className="footer-links">
-            <h3>Resources</h3>
+            <h3>Connect</h3>
             <ul>
-              <li><Link href="/projects">Projects</Link></li>
               <li><Link href="/blog">Blog</Link></li>
-              <li><Link href="/resources/downloads">Downloads</Link></li>
               <li><Link href="/contact">Contact</Link></li>
               <li><Link href="/book-consultation">Book Consultation</Link></li>
             </ul>

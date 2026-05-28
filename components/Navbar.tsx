@@ -129,27 +129,7 @@ export function Navbar() {
           <Link href="/camps" className="nav-link">
             Camps
           </Link>
-          <Link href="/store" className="nav-link">
-            Store
-          </Link>
-          <Link href="/projects" className="nav-link">
-            Projects
-          </Link>
 
-          <details className="nav-dropdown">
-            <summary className="nav-dropdown-summary">
-              Resources
-              <ChevronDown className={dropdownChevronClass} />
-            </summary>
-            <div className="nav-dropdown-panel">
-              <Link href="/resources" className="nav-dropdown-link">
-                All resources
-              </Link>
-              <Link href="/resources/downloads" className="nav-dropdown-link">
-                Downloads
-              </Link>
-            </div>
-          </details>
 
           <Link href="/blog" className="nav-link">
             Blog

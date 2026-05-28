@@ -51,13 +51,13 @@ const statsRows: StatRow[] = [
   },
   {
     icon: Trophy,
-    headline: "35+",
+    headline: "135+",
     title: "Achievements",
     description: "in Tech Fests & Competitions",
   },
   {
     icon: Users,
-    headline: "1000+",
+    headline: "10000+",
     title: "Students Mentored",
     description: "Academic & Projects",
   },
@@ -95,15 +95,15 @@ const journeyItems = [
     icon: GraduationCap,
   },
   {
-    year: "2008 – 2010",
+    year: "2008 – 2011",
     title: "B.Tech Degree",
     description: "Advanced into deeper concepts, working on practical circuits and microcontrollers.",
     icon: School,
   },
   {
-    year: "2010 – 2012",
+    year: "2011 – 2012",
     title: "Master's Degree (M.Tech)",
-    description: "Specialized in advanced communication systems and cutting-edge technology.",
+    description: "Specialized in VLSI Design, Digital Image Processing, and Embedded Systems.",
     icon: GraduationCap,
   },
   {
@@ -119,15 +119,15 @@ const journeyItems = [
     icon: Users,
   },
   {
-    year: "2017 – 2020",
+    year: "2017 – 2019",
     title: "Freelancing & Consulting",
     description: "Built commercial embedded systems and IoT projects for diverse clients.",
     icon: Briefcase,
   },
   {
-    year: "2020 – Present",
-    title: "My Own Startup",
-    description: "Founded STEM initiatives, building labs and training the next generation of innovators.",
+    year: "2019 – Present",
+    title: "My Own Startup - STEMOrbit",
+    description: "Founded STEMOrbit, building 400+ STEM labs in schools and colleges, and training the next generation of innovators in AI, Robotics & Coding.",
     icon: Bot,
   },
 ];
@@ -145,36 +145,23 @@ export function AboutEducatorPage() {
         {/* Left */}
         <div className="left-content">
           <h1 className="main-heading">
-            EDUCATOR.
+            Building India's Next
             <br />
-            INNOVATOR.
-            <br />
-            <span>MENTOR.</span>
+            <span>STEM</span> Innovators
           </h1>
 
           <div className="tagline">
             <span>INSPIRING MINDS. BUILDING FUTURES.</span>
           </div>
 
-          <h2 className={`name ${greatVibes.className}`}>
-            Varun Sanduja
-          </h2>
-
-          <p className="roles">
-            Educator | Innovator | Mentor | Entrepreneur
-          </p>
 
           <div className="info-box">
             <div className="icon-box">
-              <GraduationCap strokeWidth={1.75} aria-hidden />
+              <Briefcase strokeWidth={1.75} aria-hidden />
             </div>
             <div className="info-text">
-              <h3>
-                Electronics &amp; Communication Engineering
-              </h3>
-              <p>
-                Diploma (2005–2008) | B.Tech – M.Tech (2008–2012)
-              </p>
+              <h3>Founder &amp; CEO of STEMOrbit</h3>
+              <p>2019 – Present</p>
             </div>
           </div>
 
@@ -183,30 +170,92 @@ export function AboutEducatorPage() {
               <Users strokeWidth={1.75} aria-hidden />
             </div>
             <div className="info-text">
-              <h3>Assistant Professor</h3>
-              <p>
-                Department of Electronics &amp; Communication
-              </p>
-              <span>2012 – 2017</span>
+              <h3>Former Assistant Professor</h3>
+              <p>2012 – 2018 (6 Years of Academic Mentorship)</p>
+            </div>
+          </div>
+
+          <div className="info-box">
+            <div className="icon-box">
+              <GraduationCap strokeWidth={1.75} aria-hidden />
+            </div>
+            <div className="info-text">
+              <h3>Electronics &amp; Communication Engineering</h3>
+              <p>Diploma (2005–2008) | B.Tech – M.Tech (2008–2012)</p>
+            </div>
+          </div>
+
+          <div className="signature-block">
+            <img src="/sign.png" alt="Varun Sanduja Signature" className="left-signature-img" />
+            <p className="signature-roles">STEM EXPERT | ENTREPRENEUR | INNOVATOR</p>
+          </div>
+        </div>
+
+        {/* Right Content - Premium Features Stack */}
+        <div className="right-content">
+          <div className="features-wrapper">
+            <div className="features-card">
+
+              {/* Feature 1 */}
+              <div className="feature-box">
+                <div className="feature-icon">
+                  <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div className="feature-text">
+                  Live Classes &amp;<br />
+                  Mentorship
+                </div>
+              </div>
+
+              {/* Feature 2 */}
+              <div className="feature-box">
+                <div className="feature-icon">
+                  <img src="/robot-arm.png" alt="Robotics" style={{ width: '24px', height: '24px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
+                </div>
+                <div className="feature-text">
+                  Robotics, Coding,<br />
+                  AI, IoT &amp; More
+                </div>
+              </div>
+
+              {/* Feature 3 */}
+              <div className="feature-box">
+                <div className="feature-icon">
+                  <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                      d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01" />
+                  </svg>
+                </div>
+                <div className="feature-text">
+                  STEM Lab Setup<br />
+                  for Schools
+                </div>
+              </div>
+
+              {/* Feature 4 */}
+              <div className="feature-box">
+                <div className="feature-icon">
+                  <img src="/artificial-intelligence.png" alt="Projects & Competitions" style={{ width: '24px', height: '24px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
+                </div>
+                <div className="feature-text">
+                  Projects, Competitions<br />
+                  &amp; TechFest
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
 
-        {/* Right Content */}
-        <div className="right-content">
-          <div className="quote-wrapper">
-            <div className="quote-card">
-              <div className="quote-icon" aria-hidden>
-                “
-              </div>
-              <h2>
-                The best way to predict the future is to{" "}
-                <span>create it.</span>
-              </h2>
-              <div className="line" aria-hidden />
-              <p>— Peter Drucker</p>
-            </div>
-          </div>
+        {/* Powered By Ribbon & Logo */}
+        <div className="powered-by-ribbon">
+          <span>POWERED BY</span>
+        </div>
+        <div className="powered-by-logo-corner">
+          <img src="/steorbitlogo.png" alt="STEM Orbit" />
         </div>
       </section>
 

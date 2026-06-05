@@ -95,41 +95,9 @@ export function Navbar() {
             Home
           </Link>
 
-
-          <details className="nav-dropdown">
-            <summary className="nav-dropdown-summary">
-              Live Classes
-              <ChevronDown className={dropdownChevronClass} />
-            </summary>
-            <div className="nav-dropdown-panel">
-              <Link href="/live-classes" className="nav-dropdown-link">
-                Overview
-              </Link>
-              <Link href="/live-classes/schedule" className="nav-dropdown-link">
-                Schedule
-              </Link>
-            </div>
-          </details>
-
-          <details className="nav-dropdown">
-            <summary className="nav-dropdown-summary">
-              School Solutions
-              <ChevronDown className={dropdownChevronClass} />
-            </summary>
-            <div className="nav-dropdown-panel">
-              <Link href="/school-solutions" className="nav-dropdown-link">
-                STEM Labs
-              </Link>
-              <Link href="/school-solutions/workshops" className="nav-dropdown-link">
-                Workshops
-              </Link>
-            </div>
-          </details>
-
-          <Link href="/camps" className="nav-link">
-            Camps
+          <Link href="/screen-to-creator" className="nav-link">
+            Screen to Creator Course
           </Link>
-
 
           <Link href="/blog" className="nav-link">
             Blog
@@ -137,15 +105,18 @@ export function Navbar() {
           <Link href="/contact" className="nav-link">
             Contact
           </Link>
+          <Link href="/gallery" className="nav-link">
+            Gallery
+          </Link>
         </nav>
 
         <Link
-          href="/book-consultation"
+          href="/contact"
           className="nav-cta"
           onClick={() => setMobileOpen(false)}
         >
           <CalendarIcon className="nav-cta-icon" />
-          Book Free Consultation
+          Book Consultation
         </Link>
       </div>
     </header>

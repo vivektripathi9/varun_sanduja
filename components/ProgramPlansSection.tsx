@@ -16,7 +16,7 @@ export function ProgramPlansSection() {
           <div className="pp-card">
             <div className="pp-image">
               <Image 
-                src="/hero.png" 
+                src="/basic-course.png" 
                 alt="Standard Plan" 
                 fill 
                 style={{ objectFit: 'cover' }}
@@ -74,7 +74,7 @@ export function ProgramPlansSection() {
           <div className="pp-card">
             <div className="pp-image">
               <Image 
-                src="/hero.png" 
+                src="/1-1course.png" 
                 alt="Premium Plan" 
                 fill 
                 style={{ objectFit: 'cover' }}

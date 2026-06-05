@@ -1,0 +1,239 @@
+.pas-new-section {
+  width: 100%;
+  padding: 10px 0; /* Reduced to stick sections together */
+  display: flex;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #f3f1fa; /* Light purple background stretched full width */
+}
+
+.pas-new-container {
+  width: 100%;
+  max-width: 1400px; /* Match overall site width */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 48px; /* Approximately 48px below the top row block */
+}
+
+.pas-new-top-row {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start; /* Align image and content columns to top */
+}
+
+.pas-new-image-col {
+  flex: 0 0 32%;
+  display: flex;
+}
+
+.pas-new-image {
+  width: 100%;
+  height: auto; /* Natural content-driven height */
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 4 Floating Feature Cards */
+.pas-new-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.pas-new-feature-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pas-new-feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.pas-feature-icon-wrapper {
+  font-size: 32px; /* Large Emoji */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  flex-shrink: 0;
+}
+
+.blue-glow { background: rgba(59, 130, 246, 0.1); }
+.orange-glow { background: rgba(249, 115, 22, 0.1); }
+.green-glow { background: rgba(34, 197, 94, 0.1); }
+.red-glow { background: rgba(239, 68, 68, 0.1); }
+
+.pas-new-feature-card h4 {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e1b4b;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.pas-new-content-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Group content stack naturally */
+  padding: 0; 
+  gap: 32px; /* Set specific spacing between elements including CTA */
+}
+
+.pas-new-header h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #1e1b4b; /* Dark indigo */
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-top: -4px; /* Optical alignment for strict top grid matching */
+}
+
+.pas-new-header h2 span {
+  font-size: 36px;
+  font-weight: 700;
+  color: #312e81; /* Slightly lighter indigo for (OPTIONAL) */
+}
+
+.pas-new-header p {
+  font-size: 18px;
+  color: #374151;
+  margin: 0;
+  font-weight: 600;
+}
+
+.pas-new-details-row {
+  display: flex;
+  gap: 16px; /* Reduced gap slightly */
+  align-items: stretch; /* Stretch children to match height */
+}
+
+/* Fee Card */
+.pas-new-fee-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Space out top, middle, bottom */
+  min-width: 180px;
+}
+
+.pas-new-fee-label {
+  font-size: 18px;
+  font-weight: 800;
+  color: #312e81; /* Subtle indigo */
+}
+
+.pas-new-fee-amount {
+  font-size: 48px; /* Bigger! */
+  font-weight: 800;
+  color: #1e1b4b;
+  line-height: 1;
+  margin: 8px 0; /* Reduced breathing room */
+}
+
+.pas-new-duration {
+  font-size: 16px;
+  font-weight: 800;
+  color: #312e81;
+}
+
+/* Checklist */
+.pas-new-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pas-new-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 16px;
+  color: #374151;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.pas-check-icon {
+  flex-shrink: 0;
+  margin-top: -1px;
+}
+
+/* Bottom Text */
+.pas-new-bottom-text {
+  text-align: left;
+  font-size: 18px;
+  color: #374151;
+  font-weight: 600;
+  margin: 0; /* Remove extra margin, handled by container gap */
+}
+/* Registration CTA */
+.pas-new-cta-row {
+  margin-top: 0; /* Let space-between handle spacing naturally */
+  display: flex;
+  justify-content: center; /* Center the button width-wise */
+}
+
+.pas-new-register-btn {
+  background-color: #f59e0b; /* Amber/Orange color matching typical primary CTA */
+  color: #ffffff;
+  padding: 16px 40px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.pas-new-register-btn:hover {
+  background-color: #d97706;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .pas-new-top-row {
+    flex-direction: column;
+  }
+  .pas-new-image-col {
+    flex: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .pas-new-details-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pas-new-fee-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}

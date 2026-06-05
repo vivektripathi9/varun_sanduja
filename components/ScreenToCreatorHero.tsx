@@ -113,19 +113,6 @@ export function ScreenToCreatorHero() {
             from passive mobile usage to creative technology building.
           </p>
 
-          <div className="stc-benefits-strip" role="list">
-            {BENEFITS.map(({ Icon, line1, line2 }) => (
-              <div className="stc-benefit" role="listitem" key={line1 + line2}>
-                <div className="stc-benefit-icon-wrap" aria-hidden>
-                  <Icon />
-                </div>
-                <p className="stc-benefit-label">
-                  <span className="stc-benefit-line">{line1}</span>
-                  <span className="stc-benefit-line">{line2}</span>
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* RIGHT CARD */}
@@ -141,9 +128,6 @@ export function ScreenToCreatorHero() {
           </ul>
 
           <div className="stc-card-actions">
-            <Link href="/book-consultation" className="stc-session-btn">
-              Book Free Trial Class
-            </Link>
             <Link href="#curriculum" className="stc-outline-btn">
               View Curriculum
             </Link>
@@ -153,6 +137,20 @@ export function ScreenToCreatorHero() {
           </div>
         </div>
 
+      </div>
+
+      <div className="stc-benefits-strip" role="list">
+        {BENEFITS.map(({ Icon, line1, line2 }) => (
+          <div className="stc-benefit" role="listitem" key={line1 + line2}>
+            <div className="stc-benefit-icon-wrap" aria-hidden>
+              <Icon />
+            </div>
+            <p className="stc-benefit-label">
+              <span className="stc-benefit-line">{line1}</span>
+              <span className="stc-benefit-line">{line2}</span>
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ export default function BookConsultationPage() {
       <div className="consultation-container">
         {/* Left Side: Copy and Information */}
         <div className="consultation-info">
-          <div className="consultation-badge">FREE CONSULTATION</div>
+          <div className="consultation-badge">BOOK CONSULTATION</div>
           
           <h1 className="consultation-title">
             Let's Discuss Your <span>STEM Journey</span>

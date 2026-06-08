@@ -237,3 +237,81 @@
     max-width: 300px;
   }
 }
+
+@media (max-width: 768px) {
+  .pas-new-section {
+    padding: 10px 16px;
+  }
+
+  .pas-new-container {
+    gap: 32px;
+  }
+
+  .pas-new-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .pas-new-header h2 {
+    font-size: 28px;
+  }
+
+  .pas-new-header h2 span {
+    font-size: 24px;
+  }
+
+  .pas-new-header p {
+    font-size: 16px;
+  }
+
+  .pas-new-fee-amount {
+    font-size: 36px;
+  }
+
+  .pas-new-fee-label {
+    font-size: 16px;
+  }
+
+  .pas-new-checklist li {
+    font-size: 14px;
+  }
+
+  .pas-new-bottom-text {
+    font-size: 16px;
+  }
+
+  .pas-new-register-btn {
+    padding: 14px 32px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pas-new-feature-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .pas-feature-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+
+  .pas-new-feature-card {
+    padding: 12px 8px;
+  }
+
+  .pas-new-feature-card h4 {
+    font-size: 13px;
+  }
+
+  .pas-new-header h2 {
+    font-size: 24px;
+  }
+
+  .pas-new-fee-card {
+    min-width: 140px;
+    padding: 16px;
+  }
+}

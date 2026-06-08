@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { Great_Vibes } from "next/font/google";
 import { ProgramsShowcaseSection } from "../ProgramsShowcaseSection";
+import { AnimatedCounter } from "../AnimatedCounter";
 import "./AboutEducator.css";
 
 const greatVibes = Great_Vibes({
@@ -37,7 +38,9 @@ const expertiseItems: { label: string; icon: LucideIcon }[] = [
 
 type StatRow = {
   icon: LucideIcon;
-  headline: string;
+  value?: number;
+  headline?: string;
+  suffix?: string;
   title: string;
   description: string;
 };
@@ -45,45 +48,52 @@ type StatRow = {
 const statsRows: StatRow[] = [
   {
     icon: FileText,
-    headline: "40+",
+    value: 40,
+    suffix: "+",
     title: "Research Papers",
     description: "in Journals & Conferences",
   },
   {
     icon: Trophy,
-    headline: "135+",
+    value: 135,
+    suffix: "+",
     title: "Achievements",
     description: "in Tech Fests & Competitions",
   },
   {
     icon: Users,
-    headline: "10000+",
+    value: 10000,
+    suffix: "+",
     title: "Students Mentored",
     description: "Academic & Projects",
   },
   {
     icon: Briefcase,
-    headline: "1000+",
+    value: 1000,
+    suffix: "+",
     title: "Professional Projects",
     description: "Worked On",
   },
   {
     icon: School,
-    headline: "400+",
+    value: 400,
+    suffix: "+",
     title: "STEM Labs",
     description: "Schools & Colleges",
   },
   {
     icon: Presentation,
-    headline: "Workshops",
+    value: 150,
+    suffix: "+",
     title: "Training Programs",
-    description: "AI, Robotics & Coding",
+    description: "AI, Robotics & Coding Workshops",
   },
   {
     icon: GraduationCap,
-    headline: "Educator",
-    title: "Guide • Leader",
-    description: "Future Innovators",
+    value: 14,
+    suffix: "+",
+    title: "Years Experience",
+    description: "As STEM Guide & Leader",
   },
 ];
 
@@ -277,7 +287,13 @@ export function AboutEducatorPage() {
           {statsRows.map((s, i) => (
             <div key={s.title} className="stat-card">
               <s.icon strokeWidth={1.25} aria-hidden />
-              <h2>{s.headline}</h2>
+              <h2>
+                {s.value !== undefined ? (
+                  <AnimatedCounter value={s.value} suffix={s.suffix} />
+                ) : (
+                  s.headline
+                )}
+              </h2>
               <h3>{s.title}</h3>
               <p>{s.description}</p>
             </div>

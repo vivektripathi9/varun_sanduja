@@ -77,6 +77,10 @@ export function Navbar() {
           aria-expanded={mobileOpen}
           aria-controls="site-nav-menu"
           onClick={() => setMobileOpen((o) => !o)}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            setMobileOpen((o) => !o);
+          }}
         >
           <span className="nav-mobile-toggle-bars" aria-hidden />
           <span className="sr-only">Toggle menu</span>
@@ -95,24 +99,32 @@ export function Navbar() {
             Home
           </Link>
 
-          <Link href="/screen-to-creator" className="nav-link">
+          <Link href="/screen-to-creator" className="nav-link" onClick={() => setMobileOpen(false)}>
             Screen to Creator Course
           </Link>
 
-          <Link href="/blog" className="nav-link">
+          <Link href="/blog" className="nav-link" onClick={() => setMobileOpen(false)}>
             Blog
           </Link>
-          <Link href="/contact" className="nav-link">
+          <Link href="/contact" className="nav-link" onClick={() => setMobileOpen(false)}>
             Contact
           </Link>
-          <Link href="/gallery" className="nav-link">
+          <Link href="/gallery" className="nav-link" onClick={() => setMobileOpen(false)}>
             Gallery
+          </Link>
+          <Link
+            href="/contact"
+            className="nav-cta nav-cta-mobile"
+            onClick={() => setMobileOpen(false)}
+          >
+            <CalendarIcon className="nav-cta-icon" />
+            Book Consultation
           </Link>
         </nav>
 
         <Link
           href="/contact"
-          className="nav-cta"
+          className="nav-cta nav-cta-desktop"
           onClick={() => setMobileOpen(false)}
         >
           <CalendarIcon className="nav-cta-icon" />

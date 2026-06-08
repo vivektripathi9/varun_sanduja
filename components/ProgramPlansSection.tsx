@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function ProgramPlansSection() {
   return (
@@ -13,7 +14,7 @@ export function ProgramPlansSection() {
         {/* PLAN WRAPPER */}
         <div className="pp-wrapper">
           {/* STANDARD PLAN */}
-          <div className="pp-card">
+          <Link href="/curriculum/robotics/standard" className="pp-card" style={{ textDecoration: 'none', color: 'inherit' }}>
             <div className="pp-image">
               <Image 
                 src="/basic-course.png" 
@@ -68,10 +69,10 @@ export function ProgramPlansSection() {
                 TOTAL: ₹12,998/-
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* PREMIUM PLAN */}
-          <div className="pp-card">
+          <Link href="/curriculum/robotics/premium" className="pp-card" style={{ textDecoration: 'none', color: 'inherit' }}>
             <div className="pp-image">
               <Image 
                 src="/1-1course.png" 
@@ -126,7 +127,7 @@ export function ProgramPlansSection() {
                 TOTAL: ₹15,998/-
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </section>

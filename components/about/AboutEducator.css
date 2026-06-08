@@ -600,6 +600,15 @@ body {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .stat-card:last-child {
+    grid-column: 1 / -1;
+  }
 }
 
 @media(max-width: 480px) {
@@ -723,8 +732,10 @@ body {
 @media(max-width: 1200px) {
   .hero-section {
     flex-direction: column;
+    height: auto;
+    min-height: 100vh;
     gap: 60px;
-    padding: 60px 40px;
+    padding: 100px 40px 80px;
   }
 
   .left-content,
@@ -733,11 +744,16 @@ body {
   }
 
   .right-content {
-    justify-content: center;
+    justify-content: flex-start;
+  }
+
+  .features-wrapper {
+    align-items: flex-start;
+    max-width: 100%;
   }
 
   .main-heading {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
   }
 
   .expertise-grid {
@@ -753,19 +769,28 @@ body {
 
 @media(max-width: 768px) {
   .hero-section {
-    padding: 50px 25px;
+    padding: 280px 25px 60px; /* Pushed content downwards */
+  }
+
+  .right-content {
+    display: none; /* Hidden on mobile phone */
   }
 
   .main-heading {
-    font-size: 3.3rem;
+    font-size: 2.8rem;
+  }
+
+  .tagline {
+    font-size: 0.75rem;
+    padding: 6px 12px;
   }
 
   .name {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .roles {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .features-card {
@@ -775,7 +800,6 @@ body {
     gap: 12px;
     padding: clamp(14px, 2.5vw, 20px);
   }
-
   .feature-box {
     padding: 10px 14px;
     height: 100%;
@@ -783,6 +807,10 @@ body {
 
   .expertise-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .expertise-item:last-child {
+    grid-column: 1 / -1;
   }
 
   .footer-strip p {
@@ -814,10 +842,38 @@ body {
   .bento-card.large, .bento-card.small {
     grid-column: span 1;
   }
+
+  .powered-by-ribbon {
+    display: none;
+  }
+
+  .powered-by-logo-corner {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .powered-by-logo-corner img {
+    height: 45px;
+  }
 }
 
 @media(max-width: 480px) {
   .features-card {
     grid-template-columns: 1fr;
+  }
+  .main-heading {
+    font-size: 2.2rem;
+  }
+  .info-text h3 {
+    font-size: 1rem;
+  }
+  .info-text p {
+    font-size: 0.8rem;
+  }
+  .left-signature-img {
+    width: 150px;
+  }
+  .journey-header h2 {
+    font-size: 2.5rem;
   }
 }

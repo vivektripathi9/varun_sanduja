@@ -203,15 +203,14 @@ function LevelAccordion({ level, defaultOpen = false }: { level: any, defaultOpe
     <section className="level-section">
       <div className="level-indicator">{level.id}</div>
       <div 
-        className="level-header" 
+        className={`level-header ${isOpen ? 'open' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
-        style={{ cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(255,255,255,0.03)', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', marginBottom: isOpen ? '30px' : '0' }}
       >
-        <div>
-          <h2 style={{ marginBottom: '8px' }}>{level.title}</h2>
-          <p className="level-goal" style={{ margin: 0 }}>{level.modules} • <strong>Goal:</strong> {level.goal}</p>
+        <div className="level-header-content">
+          <h2>{level.title}</h2>
+          <p className="level-goal">{level.modules} • <strong>Goal:</strong> {level.goal}</p>
         </div>
-        <div>
+        <div className="level-header-icon">
           {isOpen ? <ChevronUp size={28} color="#f3b400" /> : <ChevronDown size={28} color="#f3b400" />}
         </div>
       </div>

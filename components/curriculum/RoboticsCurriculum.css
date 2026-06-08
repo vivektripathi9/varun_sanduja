@@ -153,7 +153,27 @@
 }
 
 .level-header {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 0;
+  transition: all 0.3s ease;
+}
+
+.level-header.open {
   margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(243, 180, 0, 0.3);
+}
+
+.level-header-content {
+  flex: 1;
+  padding-right: 20px;
 }
 
 .level-header h2 {
@@ -165,6 +185,14 @@
 .level-goal {
   font-size: 1.1rem;
   color: #aebce0;
+  margin: 0;
+}
+
+.level-header-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* MODULES GRID */
@@ -478,4 +506,73 @@
 
 .outcome-box strong {
   color: white;
+}
+
+@media(max-width: 768px) {
+  .vision-hero {
+    padding: 100px 15px 40px;
+  }
+  .vision-hero h1 {
+    font-size: 2.2rem;
+  }
+  .curriculum-stats {
+    gap: 12px;
+  }
+  .stat-pill {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+  .timeline-wrapper {
+    margin: 40px auto;
+  }
+  .timeline-wrapper::before {
+    left: 10px;
+  }
+  .level-section {
+    padding-left: 24px;
+    margin-bottom: 50px;
+  }
+  .level-indicator {
+    left: -24px;
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  .level-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
+  .level-header-content {
+    padding-right: 0;
+  }
+  .level-header h2 {
+    font-size: 1.5rem;
+  }
+  .level-goal {
+    font-size: 0.95rem;
+  }
+  .modules-grid {
+    grid-template-columns: 1fr;
+  }
+  .finale-section {
+    padding-left: 24px;
+  }
+  .finale-card {
+    padding: 24px;
+  }
+  .finale-card h2 {
+    font-size: 1.8rem;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .skill-category {
+    padding: 20px;
+  }
+  .outcome-box {
+    padding: 24px;
+  }
 }

@@ -53,7 +53,7 @@ const stats = [
   },
   {
     icon: "trophy",
-    value: "250+",
+    value: "1000+",
     label: "Projects Completed",
   },
   {
@@ -326,7 +326,7 @@ export function ProgramsShowcaseSection() {
               <p className="programs-cta-text">
                 Transform from a passive screen consumer into an active creator. Learn robotics, coding, and innovation in our flagship program.
               </p>
-              <Link href="/courses/screen-to-creator" className="programs-cta-btn">
+              <Link href="/screen-to-creator" className="programs-cta-btn">
                 Explore Course <span aria-hidden>→</span>
               </Link>
             </div>

@@ -128,7 +128,7 @@ export function ScreenToCreatorHero() {
           </ul>
 
           <div className="stc-card-actions">
-            <Link href="#curriculum" className="stc-outline-btn">
+            <Link href="/curriculum/robotics/standard" className="stc-outline-btn">
               View Curriculum
             </Link>
             <div className="stc-urgency-text">

@@ -30,7 +30,7 @@ export function ParentAwarenessSection() {
               {/* Fee Card */}
               <div className="pas-new-fee-card">
                 <span className="pas-new-fee-label">FEE:</span>
-                <span className="pas-new-fee-amount">₹599/-</span>
+                <span className="pas-new-fee-amount">₹999/-</span>
                 <span className="pas-new-duration">DURATION: 1 HOUR</span>
               </div>
 

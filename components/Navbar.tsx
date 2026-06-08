@@ -109,9 +109,9 @@ export function Navbar() {
           <Link href="/contact" className="nav-link" onClick={() => setMobileOpen(false)}>
             Contact
           </Link>
-          <Link href="/gallery" className="nav-link" onClick={() => setMobileOpen(false)}>
+          {/* <Link href="/gallery" className="nav-link" onClick={() => setMobileOpen(false)}>
             Gallery
-          </Link>
+          </Link> */}
           <Link
             href="/contact"
             className="nav-cta nav-cta-mobile"

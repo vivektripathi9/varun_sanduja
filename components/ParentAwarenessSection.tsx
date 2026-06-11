@@ -10,11 +10,11 @@ export function ParentAwarenessSection() {
         <div className="pas-new-top-row">
           {/* Left: Image & Features */}
           <div className="pas-new-image-col">
-            <Image 
-              src="/parents-awerness.png" 
-              alt="Parent Awareness Session" 
-              width={600} 
-              height={400} 
+            <Image
+              src="/parents-awerness.png"
+              alt="Parent Awareness Session"
+              width={600}
+              height={400}
               className="pas-new-image"
             />
           </div>
@@ -31,29 +31,29 @@ export function ParentAwarenessSection() {
               <div className="pas-new-fee-card">
                 <span className="pas-new-fee-label">FEE:</span>
                 <span className="pas-new-fee-amount">₹999/-</span>
-                <span className="pas-new-duration">DURATION: 1 HOUR</span>
+                <span className="pas-new-duration">DURATION: 1 HOUR | MODE: ONLINE</span>
               </div>
 
               {/* Checkmarks */}
               <ul className="pas-new-checklist">
                 <li>
-                  <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" className="pas-check-icon" /> 
-                  Understand child's screen habits & daily routine
+                  <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" className="pas-check-icon" />
+                  Understand child&apos;s screen habits & daily routine
                 </li>
                 <li>
-                  <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" className="pas-check-icon" /> 
+                  <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" className="pas-check-icon" />
                   Type of content seen on mobile (games, videos, social media etc.)
                 </li>
                 <li>
-                  <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" className="pas-check-icon" /> 
+                  <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" className="pas-check-icon" />
                   Screen-time behavior, attention & emotional patterns
                 </li>
                 <li>
-                  <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" className="pas-check-icon" /> 
+                  <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" className="pas-check-icon" />
                   Guidance for healthy technology habits
                 </li>
                 <li>
-                  <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" className="pas-check-icon" /> 
+                  <CheckCircle2 size={18} fill="#22c55e" color="#ffffff" className="pas-check-icon" />
                   Program suitability assessment & recommendations
                 </li>
               </ul>
@@ -86,7 +86,7 @@ export function ParentAwarenessSection() {
 
             {/* Registration CTA */}
             <div className="pas-new-cta-row">
-              <a href="#" className="pas-new-register-btn">Register for this Event</a>
+              <a href="/book-demo-session" className="pas-new-register-btn">Book consultation</a>
             </div>
           </div>
         </div>

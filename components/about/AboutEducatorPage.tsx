@@ -20,11 +20,7 @@ import { ProgramsShowcaseSection } from "../ProgramsShowcaseSection";
 import { AnimatedCounter } from "../AnimatedCounter";
 import "./AboutEducator.css";
 
-const greatVibes = Great_Vibes({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
+import "./AboutEducator.css";
 
 const expertiseItems: { label: string; icon: LucideIcon }[] = [
   { label: "Embedded Systems", icon: Cpu },
@@ -155,7 +151,7 @@ export function AboutEducatorPage() {
         {/* Left */}
         <div className="left-content">
           <h1 className="main-heading">
-            Building India's Next
+            Building India&apos;s Next
             <br />
             <span>STEM</span> Innovators
           </h1>

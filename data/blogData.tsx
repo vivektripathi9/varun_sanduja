@@ -20,9 +20,9 @@ export const blogPosts: BlogPost[] = [
     image: "/parents-awerness.png",
     content: (
       <>
-        <h2>From Screen Consumers to Future Creators: Reimagining Children's Relationship with Technology</h2>
-        <p>In today's digital age, screens have become an inseparable part of childhood. Whether for learning, entertainment, communication, or recreation, children spend a significant portion of their day interacting with digital devices.</p>
-        <p>As parents and educators, the conversation often revolves around one question: "How can we reduce children's screen time?"</p>
+        <h2>From Screen Consumers to Future Creators: Reimagining Children&apos;s Relationship with Technology</h2>
+        <p>In today&apos;s digital age, screens have become an inseparable part of childhood. Whether for learning, entertainment, communication, or recreation, children spend a significant portion of their day interacting with digital devices.</p>
+        <p>As parents and educators, the conversation often revolves around one question: &quot;How can we reduce children&apos;s screen time?&quot;</p>
         <p>While this concern is valid, perhaps the more important question is:</p>
         <p><strong>How can we transform screen time into a meaningful opportunity for creation, innovation, and learning?</strong></p>
 

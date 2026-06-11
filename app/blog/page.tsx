@@ -16,7 +16,7 @@ export default function BlogPage() {
         </h1>
         
         <p className="hero-landing-desc">
-          Read the latest articles on technology trends, education, and our students' success stories.
+          Read the latest articles on technology trends, education, and our students&apos; success stories.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left mt-12">

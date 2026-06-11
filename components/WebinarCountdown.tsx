@@ -32,9 +32,12 @@ export function WebinarCountdown() {
   const [time, setTime] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
-    setTime(getTimeLeft());
+    const timeoutId = setTimeout(() => setTime(getTimeLeft()), 0);
     const id = setInterval(() => setTime(getTimeLeft()), 1000);
-    return () => clearInterval(id);
+    return () => {
+      clearTimeout(timeoutId);
+      clearInterval(id);
+    };
   }, []);
 
   /* Render placeholder during SSR to avoid hydration mismatch */

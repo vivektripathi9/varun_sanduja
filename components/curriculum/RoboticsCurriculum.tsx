@@ -196,6 +196,7 @@ const levels = [
   }
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function LevelAccordion({ level, defaultOpen = false }: { level: any, defaultOpen?: boolean }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
@@ -218,6 +219,7 @@ function LevelAccordion({ level, defaultOpen = false }: { level: any, defaultOpe
       {isOpen && (
         <div style={{ animation: 'fadeIn 0.3s ease-in-out' }}>
           <div className="modules-grid">
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {level.items.map((mod: any, idx: number) => (
               <div key={idx} className="module-card">
                 <span className="module-number">{mod.num}</span>
@@ -293,7 +295,7 @@ export function RoboticsCurriculum({ planType = 'standard' }: { planType?: 'stan
           <span className="vision-subtitle">From Screen Time to Creation Time</span>
           <h1>STEM Robotics & Arduino Innovators Program {planType === 'premium' && <span style={{ color: '#f3b400' }}>(Premium)</span>}</h1>
           <p>
-            Today's students spend significant time on screens. Instead of eliminating it, this program transforms
+            Today&apos;s students spend significant time on screens. Instead of eliminating it, this program transforms
             screen time into productive learning by introducing students to robotics, electronics, coding, and engineering design.
           </p>
           <div className="curriculum-stats">

@@ -14,11 +14,11 @@ export default function BookConsultationPage() {
           <div className="consultation-badge">BOOK CONSULTATION</div>
           
           <h1 className="consultation-title">
-            Let's Discuss Your <span>STEM Journey</span>
+            Let&apos;s Discuss Your <span>STEM Journey</span>
           </h1>
           
           <p className="consultation-desc">
-            Whether you're a student looking to build amazing projects, a parent seeking guidance, or a school wanting to set up a STEM lab, let's connect and map out the perfect plan.
+            Whether you&apos;re a student looking to build amazing projects, a parent seeking guidance, or a school wanting to set up a STEM lab, let&apos;s connect and map out the perfect plan.
           </p>
 
           <div className="consultation-features">
@@ -56,17 +56,18 @@ export default function BookConsultationPage() {
 
         {/* Right Side: Calendly Embed */}
         <div className="consultation-calendly-wrapper">
-          <div className="calendly-glass-card">
-            {/* You can replace 'your-calendly-link' with the actual username */}
-            <iframe 
-              src="https://calendly.com/your-calendly-link"
-              width="100%" 
-              height="700" 
-              frameBorder="0" 
-              scrolling="no"
-              className="calendly-iframe"
-              title="Book a consultation on Calendly"
-            />
+          <div className="calendly-glass-card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '400px', textAlign: 'center', padding: '2rem' }}>
+            <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#fff' }}>Ready to Start?</h2>
+            <p style={{ marginBottom: '2rem', color: '#cbd5e1', fontSize: '1.1rem', maxWidth: '400px' }}>
+              Choose a time that works best for you and let&apos;s discuss your STEM journey.
+            </p>
+            <a 
+              href="/book-demo-session"
+              className="primary-btn"
+              style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', fontSize: '1.1rem' }}
+            >
+              Book Consultation Now →
+            </a>
           </div>
         </div>
       </div>

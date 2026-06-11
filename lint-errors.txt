@@ -1,0 +1,127 @@
+
+> stem-next@0.1.0 lint
+> eslint
+
+
+/home/abhishek/varunsanduja/stem-next/app/api/bookings/slots/route.ts
+  54:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/home/abhishek/varunsanduja/stem-next/app/blog/page.tsx
+  19:85  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/home/abhishek/varunsanduja/stem-next/app/book-consultation/page.tsx
+  17:16   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  21:24   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  21:145  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  62:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/home/abhishek/varunsanduja/stem-next/app/book-demo/page.tsx
+   7:16  warning  'CardContent' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+   7:46  warning  'CardHeader' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  15:15  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      @typescript-eslint/no-explicit-any
+  64:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/abhishek/varunsanduja/stem-next/app/book-demo/page.tsx:64:5
+  62 |     }
+  63 |     fetchSlots();
+> 64 |     setSelectedSlot(null);
+     |     ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  65 |   }, [selectedDate]);
+  66 |
+  67 |   const handleSubmit = async (e: React.FormEvent) => {  react-hooks/set-state-in-effect
+
+/home/abhishek/varunsanduja/stem-next/app/store/page.tsx
+  8:54  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/home/abhishek/varunsanduja/stem-next/clear-db.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/home/abhishek/varunsanduja/stem-next/components/BestSellerCourses.tsx
+  45:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/home/abhishek/varunsanduja/stem-next/components/Navbar.tsx
+   7:10  warning  'ChevronDown' is defined but never used                    @typescript-eslint/no-unused-vars
+  60:7   warning  'dropdownChevronClass' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/home/abhishek/varunsanduja/stem-next/components/ParentAwarenessSection.tsx
+  41:35  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/home/abhishek/varunsanduja/stem-next/components/ProgramJourneySection.tsx
+  1:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/abhishek/varunsanduja/stem-next/components/ProgramsShowcaseSection.tsx
+    2:8   warning  'Image' is defined but never used                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+   79:9   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  263:10  warning  'CalendarIcon' is defined but never used                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+
+/home/abhishek/varunsanduja/stem-next/components/WebinarCountdown.tsx
+  35:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/abhishek/varunsanduja/stem-next/components/WebinarCountdown.tsx:35:5
+  33 |
+  34 |   useEffect(() => {
+> 35 |     setTime(getTimeLeft());
+     |     ^^^^^^^ Avoid calling setState() directly within an effect
+  36 |     const id = setInterval(() => setTime(getTimeLeft()), 1000);
+  37 |     return () => clearInterval(id);
+  38 |   }, []);  react-hooks/set-state-in-effect
+
+/home/abhishek/varunsanduja/stem-next/components/about/AboutEducatorPage.tsx
+   23:7   warning  'greatVibes' is assigned a value but never used                                                                                                                                                                                                                                          @typescript-eslint/no-unused-vars
+  158:27  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  199:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  226:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  251:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  268:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  287:30  warning  'i' is defined but never used                                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+
+/home/abhishek/varunsanduja/stem-next/components/curriculum/RoboticsCurriculum.tsx
+  199:66  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  221:36  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  296:18  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/home/abhishek/varunsanduja/stem-next/components/ui/input.tsx
+  4:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+/home/abhishek/varunsanduja/stem-next/components/ui/label.tsx
+  4:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+/home/abhishek/varunsanduja/stem-next/data/blogData.tsx
+  23:75   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  24:20   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  25:91   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  25:118  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  25:133  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/home/abhishek/varunsanduja/stem-next/lib/db.ts
+  16:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  19:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/home/abhishek/varunsanduja/stem-next/models/Booking.ts
+  1:8  warning  'mongoose' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/abhishek/varunsanduja/stem-next/test-api.js
+  1:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/home/abhishek/varunsanduja/stem-next/test-db.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/home/abhishek/varunsanduja/stem-next/test.js
+  1:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+✖ 46 problems (30 errors, 16 warnings)
+

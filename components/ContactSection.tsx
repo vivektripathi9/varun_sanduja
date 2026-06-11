@@ -49,18 +49,19 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* RIGHT: Calendly Embed */}
-          <div className="contact-form-card">
-            <iframe 
-              src="https://calendly.com/your-calendly-link"
-              width="100%" 
-              height="500" 
-              frameBorder="0" 
-              scrolling="no"
-              className="calendly-iframe"
-              style={{ borderRadius: '16px', background: '#ffffff' }}
-              title="Book a consultation on Calendly"
-            />
+          {/* RIGHT: Booking Button */}
+          <div className="contact-form-card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '350px', textAlign: 'center', padding: '2rem', background: '#0f172a', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '16px' }}>
+            <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: '#fff' }}>Schedule a Meeting</h2>
+            <p style={{ marginBottom: '2rem', color: '#cbd5e1', fontSize: '1.05rem', maxWidth: '350px' }}>
+              Find a time that works best for you on our booking page.
+            </p>
+            <a 
+              href="/book-demo-session"
+              className="primary-btn"
+              style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2rem', fontSize: '1.1rem', background: '#f3b400', color: '#000', borderRadius: '8px', fontWeight: 'bold' }}
+            >
+              Book Your Slot →
+            </a>
           </div>
         </div>
 

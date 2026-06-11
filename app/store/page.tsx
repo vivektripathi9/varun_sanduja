@@ -5,7 +5,7 @@ export default function StorePage() {
       <div className="hero-landing-circuit" aria-hidden="true" />
       
       <div className="hero-landing-container">
-        <div className="hero-landing-badge">INNOVATOR'S HUB</div>
+        <div className="hero-landing-badge">INNOVATOR&apos;S HUB</div>
         
         <h1 className="hero-landing-title">
           STEMORBIT <span>Store</span>

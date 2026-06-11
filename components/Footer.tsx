@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import "./Footer.css";
 
 export function Footer() {
@@ -13,6 +14,15 @@ export function Footer() {
             <p>
               Empowering the next generation of innovators with practical STEM education, live mentorship, and hands-on learning experiences.
             </p>
+            <div style={{ marginTop: '1.5rem' }}>
+              <Image 
+                src="/sign.png" 
+                alt="Varun Sanduja Signature" 
+                width={200} 
+                height={70} 
+                style={{ objectFit: 'contain', opacity: 0.9 }} 
+              />
+            </div>
           </div>
 
           {/* Quick Links Column */}

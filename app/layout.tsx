@@ -12,9 +12,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "STEMORBIT — STEM education & mentorship",
+  title: "Varun Sanduja | STEM Education & Mentorship",
   description:
-    "Empowering students with practical STEM education, live mentorship, and real-world innovation.",
+    "Empowering students with practical STEM education, live mentorship, and real-world innovation by Varun Sanduja.",
 };
 
 export default function RootLayout({

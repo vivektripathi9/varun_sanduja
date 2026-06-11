@@ -50,13 +50,19 @@ export function Footer() {
           <div className="footer-contact">
             <h3>Get in Touch</h3>
             <p>Have questions? Reach out directly:</p>
+            <div className="footer-phone" style={{ marginBottom: '0.75rem' }}>
+              <a href="mailto:info@varunsanduja.com">
+                <span className="phone-icon">✉️</span>
+                info@varunsanduja.com
+              </a>
+            </div>
             <div className="footer-phone">
               <a href="tel:+919592406555">
                 <span className="phone-icon">📞</span>
                 +91 9592406555
               </a>
             </div>
-            <a href="https://wa.me/919592406555" target="_blank" rel="noopener noreferrer" className="footer-wa-btn">
+            <a href="https://wa.me/919592406555" target="_blank" rel="noopener noreferrer" className="footer-wa-btn" style={{ marginTop: '1rem' }}>
               Chat on WhatsApp
             </a>
           </div>

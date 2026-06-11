@@ -44,7 +44,7 @@ export function ContactSection() {
               <div className="info-icon">✉️</div>
               <div className="info-details">
                 <h4>Email</h4>
-                <a href="mailto:varun.stemorbit@gmail.com">varun.stemorbit@gmail.com</a>
+                <a href="mailto:info@varunsanduja.com">info@varunsanduja.com</a>
               </div>
             </div>
           </div>

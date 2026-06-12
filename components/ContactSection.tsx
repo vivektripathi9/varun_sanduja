@@ -7,7 +7,7 @@ export function ContactSection() {
   return (
     <section className="contact-section">
       <div className="contact-container">
-        
+
         <div className="contact-header">
           <h1>Get In Touch</h1>
           <p>Have questions about our programs, STEM kits, or need a consultation? Our team is here to help you build a better digital future for your child.</p>
@@ -17,13 +17,13 @@ export function ContactSection() {
           {/* LEFT: Contact Info */}
           <div className="contact-info-card">
             <h3>Contact Information</h3>
-            
+
             <div className="info-item">
               <div className="info-icon">📍</div>
               <div className="info-details">
                 <h4>Address</h4>
                 <p>
-                  STEMOrbit Technologies<br />
+                  STEMOrbit Tech LLP<br />
                   SCO-04, 1st Floor, Mehma Singh Complex<br />
                   Opposite Jal Vayu Towers, Gate 3<br />
                   New Sunny Enclave, Kharar, Sector-125<br />
@@ -55,7 +55,7 @@ export function ContactSection() {
             <p style={{ marginBottom: '2rem', color: '#cbd5e1', fontSize: '1.05rem', maxWidth: '350px' }}>
               Find a time that works best for you on our booking page.
             </p>
-            <a 
+            <a
               href="/book-demo-session"
               className="primary-btn"
               style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2rem', fontSize: '1.1rem', background: '#f3b400', color: '#000', borderRadius: '8px', fontWeight: 'bold' }}

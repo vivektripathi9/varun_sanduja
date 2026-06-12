@@ -68,6 +68,9 @@ export function ProgramPlansSection() {
               <div className="pp-total-box pp-total-green">
                 TOTAL: ₹12,998/-
               </div>
+              <div style={{ fontSize: '11px', textAlign: 'right', marginTop: '4px', color: '#6b7280', fontWeight: 'bold' }}>
+                (* GST extra)
+              </div>
             </div>
           </Link>
 
@@ -125,6 +128,9 @@ export function ProgramPlansSection() {
 
               <div className="pp-total-box pp-total-blue">
                 TOTAL: ₹15,998/-
+              </div>
+              <div style={{ fontSize: '11px', textAlign: 'right', marginTop: '4px', color: '#6b7280', fontWeight: 'bold' }}>
+                (* GST extra)
               </div>
             </div>
           </Link>

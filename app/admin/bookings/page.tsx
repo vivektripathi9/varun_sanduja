@@ -24,9 +24,29 @@ interface Booking {
   createdAt: string;
 }
 
+interface Enrollment {
+  _id: string;
+  name: string;
+  email: string;
+  mobile: string;
+  grade: string;
+  city: string;
+  planType: "standard" | "premium";
+  includeKit: boolean;
+  basePrice: number;
+  gstAmount: number;
+  totalAmount: number;
+  paymentStatus: "pending" | "paid";
+  createdAt: string;
+}
+
 export default function AdminBookingsPage() {
+  const [activeTab, setActiveTab] = useState<"bookings" | "enrollments">("bookings");
+  
   const [bookings, setBookings] = useState<Booking[]>([]);
+  const [enrollments, setEnrollments] = useState<Enrollment[]>([]);
   const [loading, setLoading] = useState(true);
+  
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
 
@@ -48,6 +68,7 @@ export default function AdminBookingsPage() {
 
   useEffect(() => {
     fetchBookings();
+    fetchEnrollments();
   }, []);
 
   useEffect(() => {
@@ -78,6 +99,16 @@ export default function AdminBookingsPage() {
       console.error("Failed to fetch bookings:", error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchEnrollments = async () => {
+    try {
+      const res = await fetch("/api/admin/enrollments");
+      const data = await res.json();
+      if (data.enrollments) setEnrollments(data.enrollments);
+    } catch (error) {
+      console.error("Failed to fetch enrollments:", error);
     }
   };
 
@@ -126,6 +157,7 @@ export default function AdminBookingsPage() {
     }
   };
 
+  // Filter Bookings
   const filteredBookings = bookings.filter((b) => {
     const matchesSearch =
       b.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -134,11 +166,26 @@ export default function AdminBookingsPage() {
     return matchesSearch && matchesStatus;
   });
 
-  // Calculate Stats
+  // Filter Enrollments
+  const filteredEnrollments = enrollments.filter((e) => {
+    const matchesSearch =
+      e.name.toLowerCase().includes(search.toLowerCase()) ||
+      e.email.toLowerCase().includes(search.toLowerCase());
+    const matchesStatus = statusFilter === "all" || e.paymentStatus === statusFilter;
+    return matchesSearch && matchesStatus;
+  });
+
+  // Calculate Stats - Bookings
   const totalBookings = bookings.length;
   const confirmedBookings = bookings.filter(b => b.status === "confirmed").length;
   const pendingBookings = bookings.filter(b => b.status === "reserved").length;
-  const revenue = bookings.filter(b => b.paymentStatus === "paid").length * 999;
+  const bookingsRevenue = bookings.filter(b => b.paymentStatus === "paid").length * 999;
+
+  // Calculate Stats - Enrollments
+  const totalEnrollments = enrollments.length;
+  const premiumEnrollments = enrollments.filter(e => e.planType === "premium").length;
+  const standardEnrollments = enrollments.filter(e => e.planType === "standard").length;
+  const enrollmentsRevenue = enrollments.filter(e => e.paymentStatus === "paid").reduce((acc, curr) => acc + curr.totalAmount, 0);
 
   return (
     <div className="min-h-screen bg-[#010a1f] text-white pt-32 pb-24">
@@ -156,34 +203,77 @@ export default function AdminBookingsPage() {
             className="text-3xl lg:text-4xl font-extrabold tracking-tight text-white"
             style={{ marginBottom: '12px' }}
           >
-            Bookings Dashboard
+            Admin Dashboard
           </h1>
           <p 
             className="text-base text-white/60"
-            style={{ marginBottom: '32px' }}
+            style={{ marginBottom: '24px' }}
           >
             Manage your sessions, track revenue, and monitor client interactions.
           </p>
+
+          {/* Tab Switcher */}
+          <div className="flex gap-4 border-b border-white/10 pb-4">
+            <button
+              onClick={() => { setActiveTab("bookings"); setStatusFilter("all"); setSearch(""); }}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                activeTab === "bookings" ? "bg-white/10 text-white" : "text-white/50 hover:text-white hover:bg-white/5"
+              }`}
+            >
+              Demo Bookings
+            </button>
+            <button
+              onClick={() => { setActiveTab("enrollments"); setStatusFilter("all"); setSearch(""); }}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                activeTab === "enrollments" ? "bg-white/10 text-white" : "text-white/50 hover:text-white hover:bg-white/5"
+              }`}
+            >
+              Course Enrollments
+            </button>
+          </div>
         </div>
 
         {/* Statistics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-[#05132d] border border-white/10 rounded-2xl p-6 shadow-sm">
-            <h3 className="text-sm font-medium text-white/50 mb-1">Total Bookings</h3>
-            <p className="text-3xl font-bold text-white">{totalBookings}</p>
-          </div>
-          <div className="bg-[#05132d] border border-white/10 rounded-2xl p-6 shadow-sm">
-            <h3 className="text-sm font-medium text-white/50 mb-1">Confirmed Sessions</h3>
-            <p className="text-3xl font-bold text-[#4ade80]">{confirmedBookings}</p>
-          </div>
-          <div className="bg-[#05132d] border border-white/10 rounded-2xl p-6 shadow-sm">
-            <h3 className="text-sm font-medium text-white/50 mb-1">Pending/Reserved</h3>
-            <p className="text-3xl font-bold text-[#f3b400]">{pendingBookings}</p>
-          </div>
-          <div className="bg-[#05132d] border border-white/10 rounded-2xl p-6 shadow-sm">
-            <h3 className="text-sm font-medium text-white/50 mb-1">Total Revenue</h3>
-            <p className="text-3xl font-bold text-[#60a5fa]">₹{revenue.toLocaleString()}</p>
-          </div>
+          {activeTab === "bookings" ? (
+            <>
+              <div className="bg-[#05132d] border border-white/10 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-sm font-medium text-white/50 mb-1">Total Bookings</h3>
+                <p className="text-3xl font-bold text-white">{totalBookings}</p>
+              </div>
+              <div className="bg-[#05132d] border border-white/10 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-sm font-medium text-white/50 mb-1">Confirmed Sessions</h3>
+                <p className="text-3xl font-bold text-[#4ade80]">{confirmedBookings}</p>
+              </div>
+              <div className="bg-[#05132d] border border-white/10 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-sm font-medium text-white/50 mb-1">Pending/Reserved</h3>
+                <p className="text-3xl font-bold text-[#f3b400]">{pendingBookings}</p>
+              </div>
+              <div className="bg-[#05132d] border border-white/10 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-sm font-medium text-white/50 mb-1">Demo Revenue</h3>
+                <p className="text-3xl font-bold text-[#60a5fa]">₹{bookingsRevenue.toLocaleString()}</p>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="bg-[#05132d] border border-white/10 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-sm font-medium text-white/50 mb-1">Total Enrollments</h3>
+                <p className="text-3xl font-bold text-white">{totalEnrollments}</p>
+              </div>
+              <div className="bg-[#05132d] border border-white/10 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-sm font-medium text-white/50 mb-1">Premium Plan</h3>
+                <p className="text-3xl font-bold text-[#4ade80]">{premiumEnrollments}</p>
+              </div>
+              <div className="bg-[#05132d] border border-white/10 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-sm font-medium text-white/50 mb-1">Standard Plan</h3>
+                <p className="text-3xl font-bold text-[#f3b400]">{standardEnrollments}</p>
+              </div>
+              <div className="bg-[#05132d] border border-white/10 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-sm font-medium text-white/50 mb-1">Course Revenue</h3>
+                <p className="text-3xl font-bold text-[#60a5fa]">₹{enrollmentsRevenue.toLocaleString()}</p>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Search & Filter Bar */}
@@ -199,10 +289,20 @@ export default function AdminBookingsPage() {
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
           >
-            <option value="all" className="bg-[#05132d]">All Statuses</option>
-            <option value="confirmed" className="bg-[#05132d]">Confirmed</option>
-            <option value="reserved" className="bg-[#05132d]">Reserved</option>
-            <option value="cancelled" className="bg-[#05132d]">Cancelled</option>
+            {activeTab === "bookings" ? (
+              <>
+                <option value="all" className="bg-[#05132d]">All Statuses</option>
+                <option value="confirmed" className="bg-[#05132d]">Confirmed</option>
+                <option value="reserved" className="bg-[#05132d]">Reserved</option>
+                <option value="cancelled" className="bg-[#05132d]">Cancelled</option>
+              </>
+            ) : (
+              <>
+                <option value="all" className="bg-[#05132d]">All Payment Statuses</option>
+                <option value="paid" className="bg-[#05132d]">Paid</option>
+                <option value="pending" className="bg-[#05132d]">Pending</option>
+              </>
+            )}
           </select>
         </div>
 
@@ -211,9 +311,9 @@ export default function AdminBookingsPage() {
           {loading ? (
             <div className="flex flex-col items-center justify-center py-20 space-y-4">
               <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-              <p className="text-white/50 text-sm">Loading bookings...</p>
+              <p className="text-white/50 text-sm">Loading data...</p>
             </div>
-          ) : (
+          ) : activeTab === "bookings" ? (
             <Table>
               <TableHeader>
                 <TableRow className="border-b border-white/10 hover:bg-transparent">
@@ -325,6 +425,88 @@ export default function AdminBookingsPage() {
                             </button>
                           </div>
                         )}
+                      </TableCell>
+                    </TableRow>
+                  ))
+                )}
+              </TableBody>
+            </Table>
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow className="border-b border-white/10 hover:bg-transparent">
+                  <TableHead className="text-white/40 font-medium text-xs uppercase tracking-wider py-4 px-6">Student</TableHead>
+                  <TableHead className="text-white/40 font-medium text-xs uppercase tracking-wider py-4 px-6">Location</TableHead>
+                  <TableHead className="text-white/40 font-medium text-xs uppercase tracking-wider py-4 px-6">Plan</TableHead>
+                  <TableHead className="text-white/40 font-medium text-xs uppercase tracking-wider py-4 px-6">Payment</TableHead>
+                  <TableHead className="text-right text-white/40 font-medium text-xs uppercase tracking-wider py-4 px-6">Date</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {filteredEnrollments.length === 0 ? (
+                  <TableRow>
+                    <TableCell colSpan={5} className="text-center py-10 text-white/40 text-sm">
+                      No course enrollments found.
+                    </TableCell>
+                  </TableRow>
+                ) : (
+                  filteredEnrollments.map((enrollment) => (
+                    <TableRow key={enrollment._id} className="group border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                      <TableCell className="py-5 px-6">
+                        <div className="flex flex-col gap-1">
+                          <span className="font-semibold text-white/90">{enrollment.name}</span>
+                          <span className="text-sm text-white/40">{enrollment.email}</span>
+                          <span className="text-sm text-white/40">{enrollment.mobile}</span>
+                        </div>
+                      </TableCell>
+                      <TableCell className="py-5 px-6">
+                        <div className="flex flex-col gap-1">
+                          <span className="text-sm text-white/80">{enrollment.city}</span>
+                          <span className="text-sm text-white/40">Grade: {enrollment.grade}</span>
+                        </div>
+                      </TableCell>
+                      <TableCell className="py-5 px-6">
+                        <div className="flex flex-col gap-1">
+                          <span className="text-sm font-medium capitalize text-white/90">
+                            {enrollment.planType} Plan
+                          </span>
+                          {enrollment.includeKit && (
+                            <span className="inline-flex items-center w-fit rounded-full bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 text-[10px] font-medium text-purple-400">
+                              + STEM Kit
+                            </span>
+                          )}
+                        </div>
+                      </TableCell>
+                      <TableCell className="py-5 px-6">
+                        <div className="flex flex-col gap-1">
+                          <span className="text-sm font-semibold text-white">₹{enrollment.totalAmount.toLocaleString()}</span>
+                          {enrollment.paymentStatus === "paid" ? (
+                            <span className="inline-flex items-center w-fit rounded-full bg-[#1e3a8a]/30 border border-[#3b82f6]/30 px-3 py-1 text-xs font-medium text-[#60a5fa]">
+                              Paid
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center w-fit rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs font-medium text-white/40">
+                              Pending
+                            </span>
+                          )}
+                        </div>
+                      </TableCell>
+                      <TableCell className="py-5 px-6 text-right">
+                        <div className="flex flex-col gap-1 items-end">
+                          <span className="text-sm text-white/80">
+                            {new Date(enrollment.createdAt).toLocaleDateString("en-US", {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                            })}
+                          </span>
+                          <span className="text-sm text-white/40">
+                            {new Date(enrollment.createdAt).toLocaleTimeString("en-US", {
+                              hour: "numeric",
+                              minute: "2-digit",
+                            })}
+                          </span>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))

@@ -407,6 +407,40 @@ export function RoboticsCurriculum({ planType = 'standard' }: { planType?: 'stan
               <span><strong>80%</strong> Hands-On Building</span>
             </div>
           </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.5rem' }}>
+            <button 
+              onClick={() => setShowForm(true)}
+              style={{
+                display: 'inline-flex',
+                height: '3.5rem',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: '9999px',
+                background: 'linear-gradient(to right, #f3b400, #e0a600)',
+                paddingLeft: '2.5rem',
+                paddingRight: '2.5rem',
+                fontSize: '1.125rem',
+                fontWeight: 'bold',
+                color: '#000',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 0 25px rgba(243, 180, 0, 0.4)',
+                transition: 'all 0.3s ease',
+                letterSpacing: '0.025em'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 0 35px rgba(243, 180, 0, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.boxShadow = '0 0 25px rgba(243, 180, 0, 0.4)';
+              }}
+            >
+              Enroll Now
+            </button>
+          </div>
         </div>
       </section>
 

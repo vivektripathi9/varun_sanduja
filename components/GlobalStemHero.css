@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
+
+.stem-hero {
+    background: #f7f7f7;
+    padding: 50px 20px;
+    font-family: inherit;
+}
+
+.stem-hero-container {
+    max-width: 1800px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 40px;
+    position: relative;
+}
+
+.stem-hero-tag {
+    display: inline-block;
+    background: #15459b;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.stem-hero-content h1 {
+    font-size: 92px;
+    line-height: .95;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.stem-hero-blue {
+    display: block;
+    color: #07225f;
+}
+
+.stem-hero-green {
+    display: block;
+    color: #2f8b4f;
+}
+
+.stem-hero-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.stem-btn-primary {
+    background: #2fa742;
+    color: white;
+    padding: 18px 34px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.stem-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(47, 167, 66, 0.2);
+}
+
+.stem-btn-secondary {
+    border: 2px solid #153a84;
+    color: #153a84;
+    padding: 18px 34px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.stem-btn-secondary:hover {
+    transform: translateY(-2px);
+    background: rgba(21, 58, 132, 0.05);
+}
+
+@media(max-width: 991px) {
+    .stem-hero {
+        padding: 40px 20px;
+    }
+
+    .stem-hero-content h1 {
+        font-size: 56px;
+    }
+
+    .stem-hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .stem-hero-subtext-br {
+        display: none;
+    }
+
+    .stem-hero-subtext-title {
+        font-size: 36px;
+    }
+
+    .stem-hero-subtext-desc {
+        font-size: 16px;
+    }
+}
+
+.stem-hero-subtext {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.stem-hero-subtext-title {
+    font-family: 'Caveat', cursive;
+    font-size: 42px;
+    color: #e85d04;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.stem-hero-subtext-desc {
+    font-size: 20px;
+    color: #153a84;
+    font-weight: 600;
+    max-width: 700px;
+    line-height: 1.5;
+}
+
+.stem-hero-features {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.stem-hero-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #153a84;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.stem-hero-feature-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 8px;
+    stroke-width: 1.5;
+}
+
+.stem-hero-feature-divider {
+    width: 1px;
+    height: 40px;
+    background-color: #cbd5e1;
+}
+
+@media(max-width: 991px) {
+    .stem-hero-features {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 15px;
+    }
+    
+    .stem-hero-feature-divider {
+        display: none;
+    }
+}
+
+.stem-hero-stats {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: white;
+    border-radius: 16px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.stem-hero-stat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stem-hero-stat-icon {
+    width: 36px;
+    height: 36px;
+    stroke-width: 1.5;
+}
+
+.stem-hero-stat-green {
+    color: #2fa742;
+}
+
+.stem-hero-stat-blue {
+    color: #153a84;
+}
+
+.stem-hero-stat-orange {
+    color: #ea580c;
+}
+
+.stem-hero-stat-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.stem-hero-stat-num {
+    color: #2fa742;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.stem-hero-stat-desc {
+    color: #1e293b;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 2px;
+}
+
+.stem-hero-stat-divider {
+    width: 1px;
+    height: 40px;
+    background-color: #e2e8f0;
+}
+
+@media(max-width: 991px) {
+    .stem-hero-stats {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 40px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .stem-hero-stat-divider {
+        width: 100%;
+        height: 1px;
+    }
+}
+
+.stem-hero-top-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #07225f;
+    color: white;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+.stem-hero-top-badge-icon {
+    width: 40px;
+    height: 40px;
+    stroke-width: 1.5;
+    flex-shrink: 0;
+}
+
+.stem-hero-top-badge-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.stem-hero-top-badge-title {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #e2e8f0;
+}
+
+.stem-hero-top-badge-countries {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+@media(max-width: 991px) {
+    .stem-hero-top-badge {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 30px;
+        align-self: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

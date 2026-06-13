@@ -1,0 +1,101 @@
+.nri-concerns-section {
+    background-color: #f8fafc;
+    padding: 80px 20px;
+    font-family: inherit;
+}
+
+.nri-concerns-container {
+    max-width: 1800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.nri-concerns-title {
+    text-align: center;
+    color: #153a84;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.nri-concerns-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.nri-concern-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.nri-concern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.nri-concern-image-wrapper {
+    margin-bottom: 24px;
+    width: 120px;
+    height: 100px;
+    background-color: #f1f5f9; /* Placeholder background */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.nri-concern-image {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.nri-concern-title {
+    color: #153a84;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+.nri-concern-chevron {
+    margin: 20px 0;
+}
+
+.nri-concern-solution {
+    color: #2fa742;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+@media(max-width: 1200px) {
+    .nri-concerns-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+}
+
+@media(max-width: 768px) {
+    .nri-concerns-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+    .nri-concerns-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+}

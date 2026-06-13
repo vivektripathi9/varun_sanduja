@@ -1,59 +1,72 @@
-import Image from "next/image";
+import React from 'react';
+import { Users, ClipboardList, Cpu, Wrench, Lightbulb, Trophy, ArrowRight } from 'lucide-react';
+import './ProgramJourneySection.css';
+
+const steps = [
+  {
+    icon: Users,
+    color: '#2fa742', // green
+    title: "Parent Discovery Session",
+    desc: "We understand your child's interests, learning style & goals."
+  },
+  {
+    icon: ClipboardList,
+    color: '#153a84', // dark blue
+    title: "Student Skill Assessment",
+    desc: "One-on-one interaction with expert mentor."
+  },
+  {
+    icon: Cpu,
+    color: '#6b21a8', // purple
+    title: "STEM Foundation Learning",
+    desc: "Basics of Electronics, Coding, Robotics & Design."
+  },
+  {
+    icon: Wrench,
+    color: '#ea580c', // orange/red
+    title: "Hands-On Project Building",
+    desc: "Build real projects & gain confidence."
+  },
+  {
+    icon: Lightbulb,
+    color: '#eab308', // yellow
+    title: "Innovation Challenges",
+    desc: "Solve real-world problems & think like innovators."
+  },
+  {
+    icon: Trophy,
+    color: '#2fa742', // green
+    title: "Global Project Showcase",
+    desc: "Present your projects & earn certificates & recognition."
+  }
+];
 
 export function ProgramJourneySection() {
   return (
-    <section className="pj-section">
-      <div className="pj-container">
-        {/* HEADING */}
-        <div className="pj-heading">
-          <h2>PROGRAM JOURNEY</h2>
-          <p>A transformation from screen overuse to skill creation.</p>
+    <section className="pj-new-section">
+      <div className="pj-new-container">
+        <h2 className="pj-new-title">THE GLOBAL STEM JOURNEY</h2>
+        
+        <div className="pj-new-steps-wrapper">
+          {steps.map((step, index) => (
+            <React.Fragment key={index}>
+              <div className="pj-new-step">
+                <div className="pj-new-step-circle" style={{ backgroundColor: step.color }}>
+                  <step.icon size={36} color="white" strokeWidth={1.5} />
+                </div>
+                <div className="pj-new-step-number">{index + 1}</div>
+                <h3 className="pj-new-step-title">{step.title}</h3>
+                <p className="pj-new-step-desc">{step.desc}</p>
+              </div>
+              
+              {index < steps.length - 1 && (
+                <div className="pj-new-step-arrow">
+                  <ArrowRight size={24} color="#153a84" strokeWidth={2.5} />
+                </div>
+              )}
+            </React.Fragment>
+          ))}
         </div>
-
-        {/* STEPS */}
-        <div className="pj-steps">
-          <div className="pj-step">
-            <div className="pj-step-circle pj-step-purple">👥</div>
-            <div className="pj-arrow">→</div>
-            <h3>1. PARENT AWARENESS</h3>
-            <p>Understand the real situation and challenges</p>
-          </div>
-
-          <div className="pj-step">
-            <div className="pj-step-circle pj-step-yellow">👦</div>
-            <div className="pj-arrow">→</div>
-            <h3>2. CHILD INTERACTION</h3>
-            <p>Know the child’s habits, interests & behavior</p>
-          </div>
-
-          <div className="pj-step">
-            <div className="pj-step-circle pj-step-blue">💡</div>
-            <div className="pj-arrow">→</div>
-            <h3>3. STEM ENGAGEMENT</h3>
-            <p>Fun & interactive STEM activities</p>
-          </div>
-
-          <div className="pj-step">
-            <div className="pj-step-circle pj-step-green">🤖</div>
-            <div className="pj-arrow">→</div>
-            <h3>4. HANDS-ON LEARNING</h3>
-            <p>Robotics, coding & electronics</p>
-          </div>
-
-          <div className="pj-step">
-            <div className="pj-step-circle pj-step-orange">🛠</div>
-            <div className="pj-arrow">→</div>
-            <h3>5. BUILD & INNOVATE</h3>
-            <p>Mini projects & creative challenges</p>
-          </div>
-
-          <div className="pj-step">
-            <div className="pj-step-circle pj-step-dark-purple">🏆</div>
-            <h3>6. SHOWCASE & GROW</h3>
-            <p>Build confidence & future-ready skills</p>
-          </div>
-        </div>
-
       </div>
     </section>
   );

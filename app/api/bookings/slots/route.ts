@@ -2,55 +2,44 @@ import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/db";
 import Booking from "@/models/Booking";
 
-// Predefined available times (e.g., 10 AM to 5 PM)
-const SLOTS_HOURS = [10, 11, 12, 13, 14, 15, 16, 17];
-
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const dateParam = searchParams.get("date");
+    const startStr = searchParams.get("start");
+    const endStr = searchParams.get("end");
 
-    if (!dateParam) {
+    if (!startStr || !endStr) {
       return NextResponse.json(
-        { error: "Date parameter is required (YYYY-MM-DD)" },
+        { error: "Missing start or end parameters" },
         { status: 400 }
       );
     }
 
-    const date = new Date(dateParam);
-    if (isNaN(date.getTime())) {
+    const start = new Date(startStr);
+    const end = new Date(endStr);
+
+    if (isNaN(start.getTime()) || isNaN(end.getTime())) {
       return NextResponse.json({ error: "Invalid date format" }, { status: 400 });
     }
 
     await connectToDatabase();
 
-    // Start and end of the requested day
-    const startOfDay = new Date(date);
-    startOfDay.setHours(0, 0, 0, 0);
-
-    const endOfDay = new Date(date);
-    endOfDay.setHours(23, 59, 59, 999);
-
-    // Fetch existing bookings for this date that are confirmed
+    // Fetch existing bookings within the query window that are confirmed or reserved
+    // A reserved booking means someone is currently paying, so it should block others.
     const existingBookings = await Booking.find({
-      startTime: { $gte: startOfDay, $lte: endOfDay },
-      status: "confirmed",
+      $or: [
+        { startTime: { $gte: start, $lt: end } },
+        { endTime: { $gt: start, $lte: end } }
+      ],
+      status: { $in: ["confirmed", "reserved"] },
     });
 
-    const bookedHours = existingBookings.map((b) => b.startTime.getHours());
+    const bookedIntervals = existingBookings.map((b) => ({
+      start: b.startTime.toISOString(),
+      end: b.endTime.toISOString(),
+    }));
 
-    // Generate available slots
-    const availableSlots = SLOTS_HOURS.map((hour) => {
-      const slotTime = new Date(date);
-      slotTime.setHours(hour, 0, 0, 0);
-      return {
-        time: slotTime,
-        available: !bookedHours.includes(hour),
-        hourStr: `${hour > 12 ? hour - 12 : hour}:00 ${hour >= 12 ? "PM" : "AM"}`,
-      };
-    });
-
-    return NextResponse.json({ slots: availableSlots });
+    return NextResponse.json({ bookedIntervals });
   } catch (error: unknown) {
     console.error("Error fetching slots:", error);
     return NextResponse.json(

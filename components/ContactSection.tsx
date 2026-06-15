@@ -56,7 +56,7 @@ export function ContactSection() {
               Find a time that works best for you on our booking page.
             </p>
             <a
-              href="/book-demo-session"
+              href="/book-consultation"
               className="primary-btn"
               style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2rem', fontSize: '1.1rem', background: '#f3b400', color: '#000', borderRadius: '8px', fontWeight: 'bold' }}
             >

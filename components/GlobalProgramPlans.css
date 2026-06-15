@@ -85,6 +85,40 @@
     font-weight: 500;
 }
 
+.gpp-enroll-btn {
+    margin-top: 30px;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 800;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.gpp-btn-green {
+    background: #2fa742;
+    box-shadow: 0 4px 15px rgba(47, 167, 66, 0.2);
+}
+
+.gpp-btn-green:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(47, 167, 66, 0.3);
+}
+
+.gpp-btn-purple {
+    background: #4338ca;
+    box-shadow: 0 4px 15px rgba(67, 56, 202, 0.2);
+}
+
+.gpp-btn-purple:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(67, 56, 202, 0.3);
+}
+
 .gpp-plan-image-wrapper {
     position: absolute;
     right: -20px;

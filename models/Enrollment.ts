@@ -6,11 +6,13 @@ export interface IEnrollment {
   mobile: string;
   grade: string;
   city: string;
-  planType: "standard" | "premium";
+  country?: string;
+  planType: "standard" | "premium" | "global-group" | "global-premium";
   includeKit: boolean;
   basePrice: number;
   gstAmount: number;
   totalAmount: number;
+  currency?: string;
   paymentStatus: "pending" | "paid";
   razorpayOrderId?: string;
   razorpayPaymentId?: string;
@@ -25,15 +27,17 @@ const enrollmentSchema = new Schema<IEnrollment>(
     mobile: { type: String, required: true },
     grade: { type: String, required: true },
     city: { type: String, required: true },
+    country: { type: String },
     planType: {
       type: String,
-      enum: ["standard", "premium"],
+      enum: ["standard", "premium", "global-group", "global-premium"],
       required: true,
     },
     includeKit: { type: Boolean, default: true },
     basePrice: { type: Number, required: true },
     gstAmount: { type: Number, required: true },
     totalAmount: { type: Number, required: true },
+    currency: { type: String, default: "INR" },
     paymentStatus: {
       type: String,
       enum: ["pending", "paid"],

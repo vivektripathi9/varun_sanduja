@@ -11,7 +11,7 @@ const razorpay = new Razorpay({
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, mobile, grade, city, planType, includeKit = true } = body;
+    const { name, email, mobile, grade, city, country, planType, includeKit = true } = body;
 
     if (!name || !email || !mobile || !grade || !city || !planType) {
       return NextResponse.json(
@@ -20,19 +20,38 @@ export async function POST(request: Request) {
       );
     }
 
-    if (planType !== "standard" && planType !== "premium") {
+    const validPlans = ["standard", "premium", "global-group", "global-premium"];
+    if (!validPlans.includes(planType)) {
       return NextResponse.json(
         { error: "Invalid plan type" },
         { status: 400 }
       );
     }
 
-    let basePrice = planType === "standard" ? 12998 : 15998;
-    if (!includeKit) {
-      basePrice -= 2999;
+    let basePrice = 0;
+    let gstAmount = 0;
+    let totalAmount = 0;
+    let currency = "INR";
+
+    if (planType === "global-group") {
+      basePrice = 149;
+      gstAmount = 0;
+      totalAmount = 149;
+      currency = "USD";
+    } else if (planType === "global-premium") {
+      basePrice = 249;
+      gstAmount = 0;
+      totalAmount = 249;
+      currency = "USD";
+    } else {
+      basePrice = planType === "standard" ? 12998 : 15998;
+      if (!includeKit) {
+        basePrice -= 2999;
+      }
+      gstAmount = Math.round(basePrice * 0.18);
+      totalAmount = basePrice + gstAmount;
+      currency = "INR";
     }
-    const gstAmount = Math.round(basePrice * 0.18);
-    const totalAmount = basePrice + gstAmount;
 
     await connectToDatabase();
 
@@ -43,21 +62,23 @@ export async function POST(request: Request) {
       mobile,
       grade,
       city,
+      country,
       planType,
       includeKit,
       basePrice,
       gstAmount,
       totalAmount,
+      currency,
       paymentStatus: "pending",
     });
 
     await enrollment.save();
 
     // Create a Razorpay order
-    // amount is in paise
+    // amount is in paise/cents
     const options = {
       amount: totalAmount * 100,
-      currency: "INR",
+      currency: currency,
       receipt: enrollment._id.toString(),
     };
 

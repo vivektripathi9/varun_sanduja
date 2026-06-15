@@ -1,0 +1,308 @@
+.booking-page-container {
+  min-height: calc(100vh - 72px);
+  background: linear-gradient(180deg, #021a4a 0%, #010a1f 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start; /* Better for taller content */
+  justify-content: center;
+  padding: 40px 20px 100px 20px; /* Extra bottom padding for mobile sticky CTA */
+}
+
+@media (min-width: 768px) {
+  .booking-page-container {
+    padding: 60px 20px;
+    align-items: center;
+  }
+}
+
+.booking-circuit-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.booking-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(15, 143, 255, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.booking-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1000px; /* Increased for two-column */
+}
+
+/* Bulletproof Padding for the Main Card */
+.booking-card-wrapper {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .booking-card-wrapper {
+    padding: 48px;
+  }
+}
+
+.booking-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .booking-right-col {
+    padding-left: 32px;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.booking-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 0;
+}
+
+.booking-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.booking-section-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2px;
+  display: block;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .booking-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Summary Card */
+.summary-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.summary-item:first-child {
+  padding-top: 0;
+}
+
+/* Date Selection - Horizontal Scroll on Mobile */
+.date-selector-grid {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 10px;
+  padding-bottom: 12px;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+  .date-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 175px; /* Shows roughly 2 rows */
+    padding-right: 12px; /* Space for vertical scrollbar */
+    padding-bottom: 0;
+  }
+}
+
+.date-selector-grid::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.date-selector-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.date-selector-grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.date-btn {
+  flex: 0 0 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 6px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.date-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.date-btn.active {
+  background: linear-gradient(135deg, #0f8fff, #006eff);
+  border-color: #0f8fff;
+  box-shadow: 0 4px 15px rgba(15, 143, 255, 0.3);
+}
+
+.date-btn-day {
+  font-size: 0.7rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.date-btn-num {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .date-btn {
+    flex: 0 0 70px;
+    padding: 12px 10px;
+    border-radius: 12px;
+  }
+  
+  .date-btn-day {
+    font-size: 0.8rem;
+  }
+  
+  .date-btn-num {
+    font-size: 1.4rem;
+    margin-top: 2px;
+  }
+}
+
+/* Time Grid */
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 8px;
+}
+
+.slot-btn {
+  padding: 10px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .slot-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+  }
+  
+  .slot-btn {
+    padding: 14px 10px;
+    font-size: 0.95rem;
+  }
+}
+
+.slot-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.slot-btn.active {
+  background: #f3b400;
+  border-color: #f3b400;
+  color: black;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(243, 180, 0, 0.3);
+}
+
+.slot-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, 0.3);
+  border-color: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: line-through;
+}
+
+/* Mobile Sticky CTA */
+.mobile-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 20px;
+  background: rgba(1, 10, 31, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 50;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .mobile-sticky-cta {
+    position: static;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    border-top: none;
+    margin-top: 2rem;
+  }
+}

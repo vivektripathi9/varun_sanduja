@@ -7,19 +7,25 @@ export function GlobalStemHero() {
     <section className="stem-hero">
       <div className="stem-hero-container">
         <div className="stem-hero-top-badge">
-          <Globe className="stem-hero-top-badge-icon" />
           <div className="stem-hero-top-badge-text">
             <span className="stem-hero-top-badge-title">Students Across</span>
-            <span className="stem-hero-top-badge-countries">
-              USA &bull; Canada &bull; UK &bull; Australia<br/>
-              UAE &bull; Singapore &amp; More
-            </span>
+            <div className="stem-hero-top-badge-countries">
+              <span>🇺🇸 USA</span>
+              <span>🇦🇺 Australia</span>
+              <span>🇨🇦 Canada</span>
+              <span>🇦🇪 UAE</span>
+              <span>🇬🇧 UK</span>
+              <span>🇸🇬 Singapore</span>
+            </div>
+            <div className="stem-hero-top-badge-more">
+              &amp; More
+            </div>
           </div>
         </div>
 
         <div className="stem-hero-content">
           <div className="stem-hero-tag">
-            For NRI Students (Age 6-16 Years)
+            For NRI Students (Age 8-16 Years)
           </div>
 
           <h1>
@@ -39,33 +45,27 @@ export function GlobalStemHero() {
           <div className="stem-hero-features">
             <div className="stem-hero-feature">
               <MonitorPlay className="stem-hero-feature-icon" />
-              <span>Live<br/>Online Classes</span>
+              <span>Live<br />Online Classes</span>
             </div>
             <div className="stem-hero-feature-divider" />
             <div className="stem-hero-feature">
               <Bot className="stem-hero-feature-icon" />
-              <span>Hands-On<br/>STEM Projects</span>
+              <span>Hands-On<br />STEM Projects</span>
             </div>
             <div className="stem-hero-feature-divider" />
             <div className="stem-hero-feature">
               <UserCheck className="stem-hero-feature-icon" />
-              <span>Expert<br/>Indian Mentors</span>
+              <span>Expert<br />Indian Mentors</span>
             </div>
             <div className="stem-hero-feature-divider" />
             <div className="stem-hero-feature">
               <Globe className="stem-hero-feature-icon" />
-              <span>International<br/>STEM Community</span>
-            </div>
-            <div className="stem-hero-feature-divider" />
-            <div className="stem-hero-feature">
-              <Medal className="stem-hero-feature-icon" />
-              <span>Innovation<br/>Challenges</span>
+              <span>International<br />STEM Community</span>
             </div>
           </div>
-
           <div className="stem-hero-buttons">
             <Link href="/book-consultation" className="stem-btn-primary">
-              BOOK FREE CONSULTATION
+              BOOK CONSULTATION
             </Link>
 
             <a href="#curriculum" className="stem-btn-secondary">
@@ -78,7 +78,7 @@ export function GlobalStemHero() {
             <Building2 className="stem-hero-stat-icon stem-hero-stat-green" />
             <div className="stem-hero-stat-text">
               <span className="stem-hero-stat-num">400+</span>
-              <span className="stem-hero-stat-desc">STEM Labs<br/>Established</span>
+              <span className="stem-hero-stat-desc">STEM Labs<br />Established</span>
             </div>
           </div>
           <div className="stem-hero-stat-divider" />
@@ -86,7 +86,7 @@ export function GlobalStemHero() {
             <Users className="stem-hero-stat-icon stem-hero-stat-blue" />
             <div className="stem-hero-stat-text">
               <span className="stem-hero-stat-num">10,000+</span>
-              <span className="stem-hero-stat-desc">Students<br/>Mentored</span>
+              <span className="stem-hero-stat-desc">Students<br />Mentored</span>
             </div>
           </div>
           <div className="stem-hero-stat-divider" />
@@ -98,7 +98,7 @@ export function GlobalStemHero() {
             <GraduationCap className="stem-hero-stat-icon stem-hero-stat-orange" />
             <div className="stem-hero-stat-text">
               <span className="stem-hero-stat-desc">Founder Led by</span>
-              <span className="stem-hero-stat-num" style={{ color: '#153a84' }}>Varun Sanduja<br/>(M.Tech)</span>
+              <span className="stem-hero-stat-num" style={{ color: '#153a84' }}>Varun Sanduja<br />(M.Tech)</span>
             </div>
           </div>
         </div>

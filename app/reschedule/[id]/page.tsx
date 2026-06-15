@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import "../../book-demo-session/book-demo.css";
+import "../../book-consultation/book-demo.css";
 
 interface Slot {
   time: string;
@@ -76,12 +76,53 @@ export default function ReschedulePage() {
     async function fetchSlots() {
       setLoadingSlots(true);
       try {
-        const dateStr = selectedDate.toISOString().split("T")[0];
-        const res = await fetch(`/api/bookings/slots?date=${dateStr}`);
-        const data = await res.json();
-        if (data.slots) {
-          setSlots(data.slots);
+        const SLOTS_HOURS = [10, 11, 12, 13, 14, 15, 16, 17, 18];
+        
+        const potentialSlots = SLOTS_HOURS.map(hour => {
+          const slotStart = new Date(selectedDate);
+          slotStart.setHours(hour, 0, 0, 0);
+          
+          const slotEnd = new Date(slotStart);
+          slotEnd.setHours(hour + 1, 0, 0, 0);
+
+          return { start: slotStart, end: slotEnd, hour };
+        });
+
+        const now = new Date();
+        const validSlots = potentialSlots.filter(s => s.start > now);
+
+        if (validSlots.length === 0) {
+          setSlots([]);
+          setLoadingSlots(false);
+          return;
         }
+
+        const queryStart = validSlots[0].start.toISOString();
+        const queryEnd = validSlots[validSlots.length - 1].end.toISOString();
+
+        const res = await fetch(`/api/bookings/slots?start=${queryStart}&end=${queryEnd}`);
+        const data = await res.json();
+        
+        const bookedIntervals = data.bookedIntervals?.map((b: any) => ({
+          start: new Date(b.start),
+          end: new Date(b.end)
+        })) || [];
+
+        const availableSlots = validSlots.map(slot => {
+          const isBooked = bookedIntervals.some((booked: any) => {
+            return slot.start < booked.end && slot.end > booked.start;
+          });
+
+          const hourStr = slot.start.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+
+          return {
+            time: slot.start.toISOString(),
+            available: !isBooked,
+            hourStr: hourStr
+          };
+        });
+
+        setSlots(availableSlots);
       } catch (err) {
         console.error("Failed to fetch slots", err);
       } finally {

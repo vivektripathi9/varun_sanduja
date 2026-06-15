@@ -86,7 +86,7 @@ export function ParentAwarenessSection() {
 
             {/* Registration CTA */}
             <div className="pas-new-cta-row">
-              <a href="/book-demo-session" className="pas-new-register-btn">Book consultation</a>
+              <a href="/book-consultation" className="pas-new-register-btn">Book consultation</a>
             </div>
           </div>
         </div>

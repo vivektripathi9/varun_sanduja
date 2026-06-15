@@ -13,6 +13,7 @@ export interface IBooking {
   googleEventId?: string;
   razorpayOrderId?: string;
   razorpayPaymentId?: string;
+  timezone?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -39,6 +40,7 @@ const bookingSchema = new Schema<IBooking>(
     googleEventId: { type: String },
     razorpayOrderId: { type: String },
     razorpayPaymentId: { type: String },
+    timezone: { type: String },
   },
   {
     timestamps: true,

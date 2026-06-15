@@ -52,15 +52,19 @@ export async function POST(request: Request) {
     await booking.save();
 
     // Send Confirmation Email
+    const userTimezone = booking.timezone || "Asia/Kolkata";
     const dateStr = new Date(booking.startTime).toLocaleDateString("en-US", {
       weekday: "long",
       year: "numeric",
       month: "long",
       day: "numeric",
+      timeZone: userTimezone,
     });
     const timeStr = booking.startTime.toLocaleTimeString("en-US", {
       hour: "numeric",
       minute: "2-digit",
+      timeZoneName: "short",
+      timeZone: userTimezone,
     });
 
     await sendBookingConfirmationEmail({

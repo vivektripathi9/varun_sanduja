@@ -5,7 +5,7 @@ import Booking from "@/models/Booking";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, date, time } = body;
+    const { name, email, phone, date, time, timezone } = body;
 
     if (!name || !email || !phone || !date || !time) {
       return NextResponse.json(
@@ -46,6 +46,7 @@ export async function POST(request: Request) {
       expiresAt,
       status: "reserved",
       paymentStatus: "pending",
+      timezone: timezone || "Asia/Kolkata",
     });
 
     return NextResponse.json(

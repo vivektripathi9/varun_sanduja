@@ -120,6 +120,7 @@ export default function BookDemoPage() {
           ...formData,
           date: selectedDate.toISOString().split("T")[0],
           time: selectedSlot,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         }),
       });
 

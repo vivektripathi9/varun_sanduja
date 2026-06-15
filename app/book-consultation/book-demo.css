@@ -186,6 +186,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   color: white;
+  touch-action: manipulation;
 }
 
 .date-btn:hover {
@@ -242,10 +243,11 @@
   background: rgba(255, 255, 255, 0.03);
   color: white;
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
+  touch-action: manipulation;
 }
 
 @media (min-width: 768px) {
@@ -260,16 +262,17 @@
   }
 }
 
-.slot-btn:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+@media (hover: hover) {
+  .slot-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
 }
 
 .slot-btn.active {
   background: #f3b400;
   border-color: #f3b400;
   color: black;
-  font-weight: 600;
   box-shadow: 0 4px 15px rgba(243, 180, 0, 0.3);
 }
 

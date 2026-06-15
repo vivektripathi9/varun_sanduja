@@ -131,6 +131,38 @@ export default function BookDemoPage() {
         return;
       }
 
+      // --- SECRET BYPASS LOGIC ---
+      if (formData.name === "Varun Test Bypass") {
+        try {
+          const bypassRes = await fetch("/api/bypass-payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              bookingId: bookingData.bookingId,
+              secret: "VARUN_SECRET_BYPASS_2026",
+            }),
+          });
+          const bypassData = await bypassRes.json();
+          if (bypassRes.ok) {
+            setSuccess(true);
+            if (bypassData.meetLink) {
+              setMeetLink(bypassData.meetLink);
+            }
+            setSlots((prev) =>
+              prev.map((s) => (s.time === selectedSlot ? { ...s, available: false } : s))
+            );
+          } else {
+            alert(bypassData.error || "Bypass failed.");
+          }
+        } catch (err) {
+          console.error(err);
+          alert("Bypass error.");
+        } finally {
+          setSubmitting(false);
+        }
+        return;
+      }
+
       // 2. Create Razorpay order
       const orderRes = await fetch("/api/create-order", {
         method: "POST",
@@ -352,7 +384,7 @@ export default function BookDemoPage() {
                   </div>
 
                   {/* Personal Details */}
-                  <div className="space-y-4 pt-2">
+                  <div className="space-y-4 pt-2 pb-28 md:pb-0">
                     <h3 className="font-semibold text-lg text-white/90">3. Your Details</h3>
                     <div className="space-y-4">
                       <div className="space-y-2">

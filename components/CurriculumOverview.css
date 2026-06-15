@@ -27,6 +27,8 @@
 
 .co-right {
     flex: 0 0 65%;
+    display: flex;
+    flex-direction: column;
 }
 
 .co-title {
@@ -72,8 +74,9 @@
 
 .co-tracks-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    flex: 1;
 }
 
 .co-track-card {
@@ -81,23 +84,29 @@
     border-radius: 12px;
     overflow: hidden;
     display: flex;
+    flex-direction: row;
+}
+
+.co-track-content {
+    flex: 1;
+    display: flex;
     flex-direction: column;
 }
 
 .co-track-header {
-    padding: 15px;
-    text-align: center;
+    padding: 24px 24px 12px;
+    text-align: left;
     color: #153a84;
 }
 
 .co-track-header h3 {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 800;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .co-track-header p {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
 }
 
@@ -114,12 +123,12 @@
 }
 
 .co-track-image-wrapper {
-    width: 100%;
-    height: 180px;
+    flex: 0 0 260px;
+    height: auto;
     background: #f1f5f9;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     overflow: hidden;
 }
@@ -131,7 +140,7 @@
 }
 
 .co-track-list {
-    padding: 20px;
+    padding: 0 24px 24px;
     list-style: none;
     margin: 0;
     flex-grow: 1;
@@ -139,11 +148,15 @@
 
 .co-track-list li {
     position: relative;
-    padding-left: 15px;
-    margin-bottom: 10px;
+    padding-left: 18px;
+    margin-bottom: 14px;
     color: #1e293b;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
+}
+
+.co-track-list li:first-child {
+    margin-top: 10px;
 }
 
 .co-track-list li::before {
@@ -169,5 +182,13 @@
     }
     .co-tracks-grid {
         grid-template-columns: 1fr;
+    }
+    .co-track-card {
+        flex-direction: column;
+    }
+    .co-track-image-wrapper {
+        flex: none;
+        width: 100%;
+        height: 220px;
     }
 }

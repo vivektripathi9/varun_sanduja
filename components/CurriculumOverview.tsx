@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import { Bot, Target, Cpu, Lightbulb, Code, Presentation } from 'lucide-react';
 import './CurriculumOverview.css';
-import juniorImg from '../public/junior-innovators.png';
 import youngImg from '../public/young-engineers.png';
 import futureImg from '../public/futuretechnologist.png';
 
@@ -84,55 +83,47 @@ export function CurriculumOverview() {
           <h2 className="co-title">PROGRAM TRACKS</h2>
           
           <div className="co-tracks-grid">
-            {/* Track 1 */}
-            <div className="co-track-card">
-              <div className="co-track-header co-header-green">
-                <h3>Junior Innovators</h3>
-                <p>(6-9 Years)</p>
-              </div>
-              <div className="co-track-image-wrapper">
-                 <Image src={juniorImg} alt="Junior Innovators" width={300} height={200} className="co-track-image" />
-              </div>
-              <ul className="co-track-list">
-                <li>Basic Robotics</li>
-                <li>Creative Engineering</li>
-                <li>STEM Experiments</li>
-                <li>Logical Thinking</li>
-              </ul>
-            </div>
 
             {/* Track 2 */}
             <div className="co-track-card">
-              <div className="co-track-header co-header-blue">
-                <h3>Young Engineers</h3>
-                <p>(10-13 Years)</p>
-              </div>
               <div className="co-track-image-wrapper">
                  <Image src={youngImg} alt="Young Engineers" width={300} height={200} className="co-track-image" />
               </div>
-              <ul className="co-track-list">
-                <li>Electronics</li>
-                <li>Arduino Projects</li>
-                <li>Robotics</li>
-                <li>Design Challenges</li>
-              </ul>
+              <div className="co-track-content">
+                <div className="co-track-header co-header-blue">
+                  <h3>Young Engineers</h3>
+                  <p>(10-13 Years)</p>
+                </div>
+                <ul className="co-track-list">
+                  <li>Basic Robotics</li>
+                  <li>Creative Engineering</li>
+                  <li>Electronics</li>
+                  <li>Arduino Projects</li>
+                  <li>Robotics</li>
+                  <li>Design Challenges</li>
+                </ul>
+              </div>
             </div>
 
             {/* Track 3 */}
             <div className="co-track-card">
-              <div className="co-track-header co-header-purple">
-                <h3>Future Technologists</h3>
-                <p>(14-16 Years)</p>
-              </div>
               <div className="co-track-image-wrapper">
                  <Image src={futureImg} alt="Future Technologists" width={300} height={200} className="co-track-image" />
               </div>
-              <ul className="co-track-list">
-                <li>Robotics &amp; AI</li>
-                <li>IoT &amp; Automation</li>
-                <li>Advanced Coding</li>
-                <li>Innovation Portfolio</li>
-              </ul>
+              <div className="co-track-content">
+                <div className="co-track-header co-header-purple">
+                  <h3>Future Technologists</h3>
+                  <p>(14-16 Years)</p>
+                </div>
+                <ul className="co-track-list">
+                  <li>STEM Experiments</li>
+                  <li>Logical Thinking</li>
+                  <li>Robotics &amp; AI</li>
+                  <li>IoT &amp; Automation</li>
+                  <li>Advanced Coding</li>
+                  <li>Innovation Portfolio</li>
+                </ul>
+              </div>
             </div>
 
           </div>

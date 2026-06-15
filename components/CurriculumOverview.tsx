@@ -2,6 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import { Bot, Target, Cpu, Lightbulb, Code, Presentation } from 'lucide-react';
 import './CurriculumOverview.css';
+import juniorImg from '../public/junior-innovators.png';
+import youngImg from '../public/young-engineers.png';
+import futureImg from '../public/futuretechnologist.png';
 
 export function CurriculumOverview() {
   return (
@@ -88,7 +91,7 @@ export function CurriculumOverview() {
                 <p>(6-9 Years)</p>
               </div>
               <div className="co-track-image-wrapper">
-                 <Image src="/placeholder-junior.png" alt="Junior Innovators" width={300} height={200} className="co-track-image" />
+                 <Image src={juniorImg} alt="Junior Innovators" width={300} height={200} className="co-track-image" />
               </div>
               <ul className="co-track-list">
                 <li>Basic Robotics</li>
@@ -105,7 +108,7 @@ export function CurriculumOverview() {
                 <p>(10-13 Years)</p>
               </div>
               <div className="co-track-image-wrapper">
-                 <Image src="/placeholder-young.png" alt="Young Engineers" width={300} height={200} className="co-track-image" />
+                 <Image src={youngImg} alt="Young Engineers" width={300} height={200} className="co-track-image" />
               </div>
               <ul className="co-track-list">
                 <li>Electronics</li>
@@ -122,7 +125,7 @@ export function CurriculumOverview() {
                 <p>(14-16 Years)</p>
               </div>
               <div className="co-track-image-wrapper">
-                 <Image src="/placeholder-future.png" alt="Future Technologists" width={300} height={200} className="co-track-image" />
+                 <Image src={futureImg} alt="Future Technologists" width={300} height={200} className="co-track-image" />
               </div>
               <ul className="co-track-list">
                 <li>Robotics &amp; AI</li>

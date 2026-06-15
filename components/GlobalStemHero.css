@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
 
 .stem-hero {
-    background: #f7f7f7;
+    background: url('/hero-global-stem-innovator.png') center right/cover no-repeat, #f7f7f7;
     padding: 50px 20px;
     font-family: inherit;
 }

@@ -2,6 +2,9 @@ import { GlobalStemHero } from "@/components/GlobalStemHero";
 import { NriParentsConcerns } from "@/components/NriParentsConcerns";
 import { ProgramJourneySection } from "@/components/ProgramJourneySection";
 import { CurriculumOverview } from "@/components/CurriculumOverview";
+import { StemKitAndDashboard } from "@/components/StemKitAndDashboard";
+import { MeetYourMentor } from "@/components/MeetYourMentor";
+import { GlobalProgramPlans } from "@/components/GlobalProgramPlans";
 
 export const metadata = {
   title: "Global STEM Innovators Program | STEMORBIT",
@@ -22,6 +25,9 @@ export default function GlobalStemInnovatorsPage({
       <ProgramJourneySection />
       
       <CurriculumOverview />
+      <StemKitAndDashboard />
+      <MeetYourMentor />
+      <GlobalProgramPlans />
     </main>
   );
 }

@@ -1,0 +1,120 @@
+.skd-section {
+    background-color: #ffffff;
+    padding: 0 20px 80px 20px; /* Top padding is 0 because the previous section already provides space */
+    font-family: inherit;
+}
+
+.skd-container {
+    max-width: 1800px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+}
+
+.skd-box {
+    border: 1px solid #dbeafe; /* softer blue border to match image */
+    border-radius: 20px; /* slightly more rounded as per image */
+    padding: 40px;
+    background: #f8faff; /* very light blue background like the image */
+    flex: 1;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* subtle premium shadow */
+}
+
+.skd-content {
+    flex: 0 0 45%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.skd-title {
+    color: #153a84;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.skd-subtitle {
+    color: #153a84;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.skd-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+}
+
+.skd-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: #1e293b;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.skd-shipping {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #153a84;
+    font-weight: 800;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.skd-image-wrapper {
+    position: absolute;
+    right: 20px;
+    top: 40px;
+    bottom: 40px;
+    width: 50%;
+    z-index: 1;
+}
+
+.skd-image {
+    object-fit: contain;
+    object-position: right center;
+}
+
+.skd-image.skd-image-bottom {
+    object-position: right bottom;
+}
+
+@media(max-width: 1400px) {
+    .skd-container {
+        flex-direction: column;
+    }
+    .skd-box {
+        flex-direction: column;
+    }
+    .skd-content {
+        flex: auto;
+    }
+    .skd-image-wrapper {
+        position: relative;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 350px;
+        margin-top: 30px;
+    }
+    .skd-image {
+        object-position: center;
+    }
+    .skd-image.skd-image-bottom {
+        object-position: center;
+    }
+}

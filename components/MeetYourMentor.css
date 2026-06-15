@@ -1,0 +1,137 @@
+.mym-section {
+    background-color: #ffffff;
+    padding: 20px 20px 80px 20px;
+    font-family: inherit;
+}
+
+.mym-container {
+    max-width: 1800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.mym-banner {
+    background: #0a1b3f; /* Deep blue */
+    border-radius: 20px;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    overflow: hidden;
+}
+
+.mym-image-wrapper {
+    flex: 0 0 30%;
+    position: relative;
+    min-height: 400px;
+}
+
+.mym-image {
+    object-fit: cover;
+    object-position: top;
+}
+
+.mym-content {
+    flex: 0 0 40%;
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mym-subtitle {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mym-title {
+    color: #ffc107;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.mym-role {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.mym-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mym-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.mym-quote-box-wrapper {
+    flex: 0 0 30%;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mym-quote-box {
+    border: 2px solid #ffc107;
+    border-radius: 16px;
+    padding: 30px 30px 30px 40px;
+    position: relative;
+}
+
+.mym-quote-mark {
+    color: #ffc107;
+    font-size: 50px;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    line-height: 1;
+    font-family: serif;
+    font-weight: bold;
+}
+
+.mym-quote-text {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.mym-signature {
+    text-align: right;
+    color: #ffffff;
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
+}
+
+@media(max-width: 1200px) {
+    .mym-banner {
+        flex-direction: column;
+    }
+    .mym-image-wrapper {
+        min-height: 350px;
+        width: 100%;
+    }
+    .mym-content, .mym-quote-box-wrapper {
+        width: 100%;
+        flex: auto;
+    }
+    .mym-quote-box-wrapper {
+        padding-top: 0;
+    }
+}

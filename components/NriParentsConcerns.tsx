@@ -5,7 +5,7 @@ import './NriParentsConcerns.css';
 
 const concerns = [
   {
-    imageSrc: "/placeholder-culture.png", // Replace with your image
+    imageSrc: "/GSIicon1.svg",
     title: "Children are disconnected from Indian culture and roots.",
     solution: "We bring India closer through mentorship, values & connection."
   },

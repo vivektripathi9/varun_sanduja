@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Script from 'next/script';
 import { CheckCircle2, Clock, Users, Globe, Lightbulb, Presentation, ChevronDown, ChevronUp } from 'lucide-react';
 import './RoboticsCurriculum.css';

@@ -64,7 +64,7 @@ export function GlobalStemHero() {
             </div>
           </div>
           <div className="stem-hero-buttons">
-            <Link href="/book-consultation" className="stem-btn-primary">
+            <Link href="/book-consultation?currency=USD" className="stem-btn-primary">
               BOOK CONSULTATION
             </Link>
 

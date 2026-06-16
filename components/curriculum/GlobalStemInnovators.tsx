@@ -305,6 +305,15 @@ export function GlobalStemInnovators({ planType = 'standard' }: { planType?: 'st
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [includeKit, setIncludeKit] = useState(true);
+  const [isUSD, setIsUSD] = useState(false);
+
+  useEffect(() => {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (tz !== "Asia/Kolkata" && tz !== "Asia/Calcutta") {
+      setIsUSD(true);
+    }
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     grade: "",
@@ -320,7 +329,7 @@ export function GlobalStemInnovators({ planType = 'standard' }: { planType?: 'st
       const res = await fetch('/api/enroll', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, planType, includeKit })
+        body: JSON.stringify({ ...formData, planType, includeKit, currency: isUSD ? "USD" : "INR" })
       });
       const data = await res.json();
       if (!res.ok) {
@@ -381,10 +390,12 @@ export function GlobalStemInnovators({ planType = 'standard' }: { planType?: 'st
     }
   };
 
-  const baseCoursePrice = planType === 'standard' ? 14999 : 19999;
-  const kitPrice = includeKit ? 3999 : 0;
+  const baseCoursePrice = isUSD 
+    ? (planType === 'standard' ? 149 : 249)
+    : (planType === 'standard' ? 14999 : 19999);
+  const kitPrice = includeKit ? (isUSD ? 49 : 3999) : 0;
   const subtotal = baseCoursePrice + kitPrice;
-  const gst = Math.round(subtotal * 0.18);
+  const gst = isUSD ? 0 : Math.round(subtotal * 0.18);
   const total = subtotal + gst;
 
   return (
@@ -602,7 +613,7 @@ export function GlobalStemInnovators({ planType = 'standard' }: { planType?: 'st
                  <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', background: 'rgba(15,143,255,0.1)', padding: '1rem', borderRadius: '0.5rem', border: '1px solid rgba(15,143,255,0.3)' }}>
                    <input type="checkbox" checked={includeKit} onChange={e => setIncludeKit(e.target.checked)} style={{ width: '1.25rem', height: '1.25rem', marginRight: '0.75rem', accentColor: '#0f8fff' }} />
                    <div>
-                     <span style={{ display: 'block', color: '#fff', fontWeight: 'bold' }}>Include Advanced Prototyping Kit (+ ₹3,999)</span>
+                     <span style={{ display: 'block', color: '#fff', fontWeight: 'bold' }}>Include Advanced Prototyping Kit (+ {isUSD ? "$49" : "₹3,999"})</span>
                      <span style={{ display: 'block', color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' }}>Required for hardware-based modules</span>
                    </div>
                  </label>
@@ -611,28 +622,28 @@ export function GlobalStemInnovators({ planType = 'standard' }: { planType?: 'st
                <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(0,0,0,0.3)', borderRadius: '0.5rem', border: '1px solid rgba(255,255,255,0.05)' }}>
                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>
                    <span>Program Fee</span>
-                   <span>₹{baseCoursePrice.toLocaleString()}</span>
+                   <span>{isUSD ? "$" : "₹"}{baseCoursePrice.toLocaleString()}</span>
                  </div>
                  {includeKit && (
                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>
                      <span>Prototyping Kit</span>
-                     <span>₹{kitPrice.toLocaleString()}</span>
+                     <span>{isUSD ? "$" : "₹"}{kitPrice.toLocaleString()}</span>
                    </div>
                  )}
                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>
                    <span>GST (18%)</span>
-                   <span>₹{gst.toLocaleString()}</span>
+                   <span>{isUSD ? "$" : "₹"}{gst.toLocaleString()}</span>
                  </div>
                  <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(255,255,255,0.1)', color: '#fff', fontSize: '1.1rem', fontWeight: 'bold' }}>
                    <span>Total Payable</span>
-                   <span style={{ color: '#0f8fff' }}>₹{total.toLocaleString()}</span>
+                   <span style={{ color: '#0f8fff' }}>{isUSD ? "$" : "₹"}{total.toLocaleString()}</span>
                  </div>
                </div>
 
                <div style={{ display: 'flex', gap: '1rem' }}>
                  <button type="button" onClick={() => setShowForm(false)} style={{ flex: 1, padding: '0.75rem', borderRadius: '0.5rem', background: 'rgba(255,255,255,0.1)', color: '#fff', border: 'none', cursor: 'pointer', fontWeight: 'bold' }}>Cancel</button>
                  <button type="submit" disabled={loading} style={{ flex: 2, padding: '0.75rem', borderRadius: '0.5rem', background: 'linear-gradient(to right, #0f8fff, #0a6bbf)', color: '#fff', border: 'none', cursor: loading ? 'not-allowed' : 'pointer', fontWeight: 'bold', opacity: loading ? 0.7 : 1 }}>
-                   {loading ? 'Processing...' : `Pay ₹${total.toLocaleString()}`}
+                   {loading ? 'Processing...' : `Pay ${isUSD ? "$" : "₹"}${total.toLocaleString()}`}
                  </button>
                </div>
             </form>

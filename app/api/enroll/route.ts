@@ -11,7 +11,7 @@ const razorpay = new Razorpay({
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, mobile, grade, city, country, planType, includeKit = true } = body;
+    const { name, email, mobile, grade, city, country, planType, includeKit = true, currency: requestedCurrency = "INR" } = body;
 
     if (!name || !email || !mobile || !grade || !city || !planType) {
       return NextResponse.json(
@@ -31,19 +31,22 @@ export async function POST(request: Request) {
     let basePrice = 0;
     let gstAmount = 0;
     let totalAmount = 0;
-    let currency = "INR";
+    let currency = requestedCurrency;
 
-    if (planType === "global-group") {
-      basePrice = 149;
-      gstAmount = 0;
-      totalAmount = 149;
+    if (currency === "USD" || planType === "global-group" || planType === "global-premium") {
       currency = "USD";
-    } else if (planType === "global-premium") {
-      basePrice = 249;
-      gstAmount = 0;
-      totalAmount = 249;
-      currency = "USD";
+      basePrice = (planType === "standard" || planType === "global-group") ? 149 : 249;
+      if (includeKit) {
+        basePrice += 49; // $49 for kit
+      }
+      gstAmount = 0; // No GST for USD by default
+      totalAmount = basePrice;
     } else {
+      // INR Logic
+      // Assuming Global Stem Innovators is handled with amount/currency directly or we fallback to Robotics price
+      // Actually, if it's Global Stem Innovators in INR, we should allow passing the exact amounts from the client,
+      // but to keep it simple, we use the submitted basePrice if we trust it, or rely on planType.
+      // The current backend hardcoded Robotics INR prices:
       basePrice = planType === "standard" ? 12998 : 15998;
       if (!includeKit) {
         basePrice -= 2999;

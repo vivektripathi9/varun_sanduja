@@ -1,9 +1,20 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import "./ParentAwarenessSection.css";
 
 export function ParentAwarenessSection() {
+  const [isUSD, setIsUSD] = useState(false);
+
+  useEffect(() => {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (tz !== "Asia/Kolkata" && tz !== "Asia/Calcutta") {
+      setIsUSD(true);
+    }
+  }, []);
+
   return (
     <section className="pas-new-section">
       <div className="pas-new-container">
@@ -30,7 +41,7 @@ export function ParentAwarenessSection() {
               {/* Fee Card */}
               <div className="pas-new-fee-card">
                 <span className="pas-new-fee-label">FEE:</span>
-                <span className="pas-new-fee-amount">₹999/-</span>
+                <span className="pas-new-fee-amount">{isUSD ? "$19" : "₹999/-"}</span>
                 <span className="pas-new-duration">DURATION: 1 HOUR | MODE: ONLINE</span>
               </div>
 

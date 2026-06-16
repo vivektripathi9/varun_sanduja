@@ -1,7 +1,19 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export function ProgramPlansSection() {
+  const [isUSD, setIsUSD] = useState(false);
+
+  useEffect(() => {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (tz !== "Asia/Kolkata" && tz !== "Asia/Calcutta") {
+      setIsUSD(true);
+    }
+  }, []);
+
   return (
     <section className="pp-section">
       <div className="pp-container">
@@ -30,8 +42,8 @@ export function ProgramPlansSection() {
               </div>
 
               <div className="pp-price pp-green-price">
-                ₹9,999/-
-                <span className="pp-kit-text">+ ₹2,999/- STEM KIT</span>
+                {isUSD ? "$149" : "₹9,999/-"}
+                <span className="pp-kit-text">+ {isUSD ? "$49" : "₹2,999/-"} STEM KIT</span>
               </div>
 
               <div className="pp-batch-tag">
@@ -66,7 +78,7 @@ export function ProgramPlansSection() {
               </ul>
 
               <div className="pp-total-box pp-total-green">
-                TOTAL: ₹12,998/-
+                TOTAL: {isUSD ? "$198" : "₹12,998/-"}
               </div>
               <div style={{ fontSize: '11px', textAlign: 'right', marginTop: '4px', color: '#6b7280', fontWeight: 'bold' }}>
                 (* GST extra)
@@ -91,8 +103,8 @@ export function ProgramPlansSection() {
               </div>
 
               <div className="pp-price pp-blue-price">
-                ₹12,999/-
-                <span className="pp-kit-text">+ ₹2,999/- STEM KIT</span>
+                {isUSD ? "$249" : "₹12,999/-"}
+                <span className="pp-kit-text">+ {isUSD ? "$49" : "₹2,999/-"} STEM KIT</span>
               </div>
 
               <div className="pp-batch-tag">
@@ -127,7 +139,7 @@ export function ProgramPlansSection() {
               </ul>
 
               <div className="pp-total-box pp-total-blue">
-                TOTAL: ₹15,998/-
+                TOTAL: {isUSD ? "$298" : "₹15,998/-"}
               </div>
               <div style={{ fontSize: '11px', textAlign: 'right', marginTop: '4px', color: '#6b7280', fontWeight: 'bold' }}>
                 (* GST extra)

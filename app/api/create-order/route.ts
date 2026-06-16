@@ -10,7 +10,7 @@ const razorpay = new Razorpay({
 
 export async function POST(request: Request) {
   try {
-    const { bookingId, amount } = await request.json();
+    const { bookingId, amount, currency = "INR" } = await request.json();
 
     if (!bookingId || !amount) {
       return NextResponse.json(
@@ -31,8 +31,8 @@ export async function POST(request: Request) {
 
     // Create a Razorpay order
     const options = {
-      amount: amount, // amount in the smallest currency unit (e.g. paise for INR)
-      currency: "INR",
+      amount: amount, // amount in the smallest currency unit (e.g. paise for INR, cents for USD)
+      currency: currency,
       receipt: bookingId,
     };
 

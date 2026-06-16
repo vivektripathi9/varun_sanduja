@@ -32,6 +32,19 @@ export default function BookDemoPage() {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [meetLink, setMeetLink] = useState<string | null>(null);
+  const [isUSD, setIsUSD] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const isIndia = tz === "Asia/Kolkata" || tz === "Asia/Calcutta";
+
+      if (params.get("currency") === "USD" || !isIndia) {
+        setIsUSD(true);
+      }
+    }
+  }, []);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -165,12 +178,16 @@ export default function BookDemoPage() {
       }
 
       // 2. Create Razorpay order
+      const amountToCharge = isUSD ? 1900 : 99900;
+      const currencyCode = isUSD ? "USD" : "INR";
+
       const orderRes = await fetch("/api/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           bookingId: bookingData.bookingId,
-          amount: 99900, // 999 INR in paise
+          amount: amountToCharge,
+          currency: currencyCode,
         }),
       });
 
@@ -380,7 +397,7 @@ export default function BookDemoPage() {
                     </div>
                     <div className="summary-item mt-3 pt-4 border-t border-white/10">
                       <span className="text-white/90 font-semibold">Total Price</span>
-                      <span className="font-bold text-[#f3b400] text-xl">₹999</span>
+                      <span className="font-bold text-[#f3b400] text-xl">{isUSD ? "$19" : "₹999"}</span>
                     </div>
                   </div>
 

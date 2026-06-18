@@ -956,58 +956,59 @@ body {
 
 .programs-cta-box {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 10px 12px;
+  flex-direction: column;
+  overflow: hidden;
   border-radius: 20px;
-  background: linear-gradient(135deg, #e8f4ff 0%, #dbeafe 55%, #eff6ff 100%);
-  border: 1px solid rgba(15, 143, 255, 0.15);
+  background: linear-gradient(135deg, #f8faff 0%, #edf4fc 100%);
+  border: 1px solid rgba(15, 143, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(15, 143, 255, 0.08);
+  margin-top: 100px; /* Align top with the cards */
 }
 
 .programs-cta-copy {
-  flex: 1 1 200px;
-  min-width: 0;
+  padding: 20px 24px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .programs-cta-heading {
-  font-size: 1.65rem;
-  font-weight: 700;
-  color: #0a1628;
-  margin-bottom: 6px;
-  line-height: 1.3;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+  line-height: 1.2;
 }
 
 .programs-cta-text {
-  font-size: 0.75rem;
-  line-height: 1.45;
-  color: #334155;
-  margin-bottom: 10px;
-  max-width: 32ch;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #475569;
+  margin-bottom: 16px;
+  max-width: 40ch;
 }
 
 .programs-cta-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 13px;
+  padding: 12px 20px;
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, #0f2744, #0a1628);
+  background: linear-gradient(180deg, #1e3a8a, #152a65);
   color: #fff;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.72rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-  transition: background 0.2s var(--ease-out), transform 0.2s var(--ease-out),
-    box-shadow 0.2s var(--ease-out);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: none;
+  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.3);
+  transition: all 0.2s var(--ease-out);
 }
 
 .programs-cta-btn:hover {
-  background: linear-gradient(180deg, #152a45, #020817);
+  background: linear-gradient(180deg, #2563eb, #1d4ed8);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.4);
 }
 
 .programs-cta-btn:focus-visible {
@@ -1015,15 +1016,21 @@ body {
   outline-offset: 3px;
 }
 
-.programs-cta-art {
-  flex-shrink: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+.programs-cta-image-wrapper {
+  width: 100%;
+  height: 180px;
+  position: relative;
+  background: #0f2744;
+}
+
+.programs-cta-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .programs-cta-art-svg {
-  max-width: 130px;
+  max-width: 160px;
   height: auto;
 }
 
@@ -1056,6 +1063,7 @@ body {
   .programs-cta-box {
     justify-content: center;
     text-align: center;
+    margin-top: 0;
   }
 
   .programs-cta-copy {
@@ -1898,27 +1906,28 @@ body {
 .pp-section {
   width: 100%;
   background: #f8fafc;
-  padding: 0;
-  /* removed side padding */
+  padding: 10px 20px 50px;
   position: relative;
 }
 
 .pp-container {
   width: 100%;
-  max-width: 100%;
-  margin: 0;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
 }
 
 /* HEADING */
 .pp-heading {
   text-align: center;
-  margin-bottom: 60px;
+  margin-top: 0;
+  margin-bottom: 30px;
 }
 
 .pp-heading h2 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(1.5rem, 4vw, 4rem);
   color: #0f172a;
   font-weight: 900;
+  margin-top: 0;
   margin-bottom: 16px;
   letter-spacing: -0.02em;
 }
@@ -2104,7 +2113,16 @@ body {
 
 @media(max-width: 768px) {
   .pp-section {
-    padding: 60px 20px;
+    padding: 0px 16px 40px;
+  }
+
+  .pp-heading {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .pp-heading h2 {
+    font-size: 20px;
   }
 
   .pp-card {
@@ -2291,7 +2309,7 @@ body {
 }
 
 .sk-left h2 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(1.5rem, 4vw, 4rem);
   color: #fff;
   font-weight: 900;
   margin-bottom: 12px;
@@ -2392,7 +2410,7 @@ body {
 }
 
 .sk-tracking-top h2 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(1.5rem, 4vw, 4rem);
   color: #059669;
   font-weight: 900;
   margin-bottom: 12px;
@@ -2595,7 +2613,7 @@ body {
 .benefits-section {
   width: 100%;
   background: #ffffff;
-  padding: 40px 0 20px;
+  padding: 100px 20px;
 }
 
 .benefits-container {
@@ -2611,7 +2629,7 @@ body {
 .benefits-title {
   text-align: center;
   color: #0f172a;
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.5rem, 4vw, 3.2rem);
   font-weight: 900;
   margin-bottom: 50px;
   text-transform: uppercase;
@@ -2681,7 +2699,7 @@ body {
 
 @media(max-width: 768px) {
   .benefits-section {
-    padding: 0;
+    padding: 60px 20px;
   }
 
   .benefits-grid {
@@ -2703,18 +2721,23 @@ body {
 
 @media(max-width: 500px) {
   .benefits-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 10px;
+  }
+
+  .benefit-item {
+    padding: 0 10px;
   }
 
   .benefit-icon {
-    width: 80px;
-    height: 80px;
-    font-size: 36px;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    margin-bottom: 12px;
   }
 
   .benefit-item h3 {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
 }
 

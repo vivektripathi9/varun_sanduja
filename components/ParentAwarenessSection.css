@@ -1,10 +1,10 @@
 .pas-new-section {
   width: 100%;
-  padding: 10px 0; /* Reduced to stick sections together */
+  padding: 100px 20px;
   display: flex;
   justify-content: center;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: #f3f1fa; /* Light purple background stretched full width */
+  background-color: #f3f1fa;
 }
 
 .pas-new-container {
@@ -254,7 +254,7 @@
 
 @media (max-width: 768px) {
   .pas-new-section {
-    padding: 10px 16px;
+    padding: 50px 20px;
   }
 
   .pas-new-container {
@@ -267,7 +267,7 @@
   }
 
   .pas-new-header h2 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .pas-new-header h2 span {

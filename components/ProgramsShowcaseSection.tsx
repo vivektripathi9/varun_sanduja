@@ -172,93 +172,6 @@ function StatIcon({ name }: { name: (typeof stats)[number]["icon"] }) {
   }
 }
 
-function StairsIllustration() {
-  return (
-    <svg
-      className="programs-cta-art-svg"
-      viewBox="0 0 200 140"
-      width="200"
-      height="140"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="rocketBody" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#0f2744" />
-          <stop offset="100%" stopColor="#1e3a5f" />
-        </linearGradient>
-      </defs>
-      {/* Stairs */}
-      <path
-        d="M20 120 L20 100 L45 100 L45 85 L70 85 L70 70 L95 70 L95 55 L120 55 L120 40 L145 40 L145 28"
-        fill="none"
-        stroke="#0f2744"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        opacity="0.45"
-      />
-      {/* Step labels */}
-      <text
-        x="22"
-        y="117"
-        fontSize="7"
-        fill="#64748b"
-        fontWeight="600"
-        style={{ fontFamily: "inherit" }}
-      >
-        CREATE
-      </text>
-      <text
-        x="48"
-        y="102"
-        fontSize="7"
-        fill="#64748b"
-        fontWeight="600"
-        style={{ fontFamily: "inherit" }}
-      >
-        LEARN
-      </text>
-      <text
-        x="73"
-        y="87"
-        fontSize="7"
-        fill="#64748b"
-        fontWeight="600"
-        style={{ fontFamily: "inherit" }}
-      >
-        PLAN
-      </text>
-      <text
-        x="98"
-        y="72"
-        fontSize="7"
-        fill="#64748b"
-        fontWeight="600"
-        style={{ fontFamily: "inherit" }}
-      >
-        SUCCEED
-      </text>
-      {/* Rocket */}
-      <path
-        d="M138 12 L152 8 L166 12 L160 32 L144 32 Z"
-        fill="url(#rocketBody)"
-        stroke="#0f2744"
-        strokeWidth="1.2"
-      />
-      <path d="M150 32v8M144 40h12" stroke="#0f2744" strokeWidth="1.2" strokeLinecap="round" />
-      <circle cx="152" cy="20" r="3" fill="#e8f4ff" stroke="#0f2744" strokeWidth="1" />
-      {/* Person */}
-      <circle cx="128" cy="108" r="5" fill="none" stroke="#0f2744" strokeWidth="1.4" />
-      <path
-        d="M128 113v12M120 125h16M124 118l-6-6M132 118l6-6"
-        fill="none"
-        stroke="#0f2744"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
 
 function CalendarIcon() {
   return (
@@ -320,18 +233,24 @@ export function ProgramsShowcaseSection() {
         </div>
 
         <aside className="programs-showcase-sidebar">
-          <div className="programs-cta-box">
+          <div className="programs-cta-box programs-cta-vertical">
+            <div className="programs-cta-image-wrapper">
+              <Image 
+                src="/hero-bg-new.png" 
+                alt="Screen to Creator Course" 
+                width={300} 
+                height={180} 
+                className="programs-cta-image"
+              />
+            </div>
             <div className="programs-cta-copy">
-              <h3 className="programs-cta-heading">Screen to Creator Course</h3>
+              <h3 className="programs-cta-heading">Screen to Creator</h3>
               <p className="programs-cta-text">
-                Transform from a passive screen consumer into an active creator. Learn robotics, coding, and innovation in our flagship program.
+                Transform from a passive screen consumer into an active creator. Learn robotics, coding, and innovation.
               </p>
               <Link href="/screen-to-creator" className="programs-cta-btn">
                 Explore Course <span aria-hidden>→</span>
               </Link>
-            </div>
-            <div className="programs-cta-art">
-              <StairsIllustration />
             </div>
           </div>
         </aside>

@@ -225,7 +225,10 @@
 
 @media(max-width: 768px) {
     .gpp-section {
-        padding: 40px 16px;
+        padding: 60px 20px;
+    }
+    .gpp-title {
+        font-size: 22px;
     }
     .gpp-plan-card {
         padding: 24px;

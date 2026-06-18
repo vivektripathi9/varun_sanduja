@@ -1,6 +1,6 @@
 .pj-new-section {
     background-color: #ffffff;
-    padding: 80px 20px;
+    padding: 100px 20px;
     font-family: inherit;
 }
 
@@ -94,20 +94,40 @@
 
 @media(max-width: 768px) {
     .pj-new-section {
-        padding: 40px 16px;
+        padding: 60px 20px;
     }
     .pj-new-title {
-        font-size: 26px;
+        font-size: 22px;
         margin-bottom: 30px;
     }
     .pj-new-steps-wrapper {
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 16px;
+        align-items: start;
     }
 
     .pj-new-step {
         max-width: 100%;
-        flex: 1;
+    }
+    
+    .pj-new-step-circle {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 12px;
+    }
+    
+    .pj-new-step-number {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+    
+    .pj-new-step-title {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .pj-new-step-desc {
+        font-size: 13px;
     }
 }

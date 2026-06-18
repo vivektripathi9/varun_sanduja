@@ -93,6 +93,13 @@
 }
 
 @media(max-width: 768px) {
+    .pj-new-section {
+        padding: 40px 16px;
+    }
+    .pj-new-title {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
     .pj-new-steps-wrapper {
         flex-direction: column;
         align-items: center;
@@ -100,7 +107,7 @@
     }
 
     .pj-new-step {
-        max-width: 300px;
+        max-width: 100%;
         flex: 1;
     }
 }

@@ -107,23 +107,6 @@ export function GlobalProgramPlans() {
     "Priority Support"
   ];
 
-  const reviews = [
-    {
-      text: "“My son used to spend hours on games. Now he builds robots and loves STEM! Highly recommended.”",
-      author: "- Parent from USA",
-      image: "/parents-awerness.png" // Placeholder
-    },
-    {
-      text: "“The Indian mentors bring a personal touch and strong values. My daughter has become more confident.”",
-      author: "- Parent from Canada",
-      image: "/parents-awerness.png" // Placeholder
-    },
-    {
-      text: "“Excellent program with structure, creativity and real learning. Worth every penny.”",
-      author: "- Parent from UK",
-      image: "/parents-awerness.png" // Placeholder
-    }
-  ];
 
   return (
     <section className="gpp-section">
@@ -200,27 +183,6 @@ export function GlobalProgramPlans() {
             </div>
           </div>
           
-        </div>
-
-        {/* WHAT PARENTS SAY */}
-        <h2 className="gpp-title" style={{ marginTop: '40px' }}>WHAT PARENTS SAY</h2>
-        <div className="gpp-reviews-grid">
-          {reviews.map((review, index) => (
-            <div className="gpp-review-card" key={index}>
-              <div className="gpp-review-image-wrapper">
-                <Image src={review.image} alt="Parent Review" width={90} height={90} className="gpp-review-image" />
-              </div>
-              <div className="gpp-review-content">
-                <div className="gpp-stars">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} className="gpp-star" />
-                  ))}
-                </div>
-                <p className="gpp-review-text">{review.text}</p>
-                <span className="gpp-review-author">{review.author}</span>
-              </div>
-            </div>
-          ))}
         </div>
 
       </div>

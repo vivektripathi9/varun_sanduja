@@ -99,6 +99,10 @@ export function Navbar() {
             Home
           </Link>
 
+          <Link href="/global-stem-innovators" className="nav-link" onClick={() => setMobileOpen(false)}>
+            Global STEM Innovators
+          </Link>
+
           <Link href="/screen-to-creator" className="nav-link" onClick={() => setMobileOpen(false)}>
             Screen to Creator Course
           </Link>

@@ -177,6 +177,16 @@
 }
 
 @media(max-width: 768px) {
+    .co-section {
+        padding: 40px 16px;
+    }
+    .co-left, .co-right {
+        padding: 20px;
+    }
+    .co-title {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
     .co-learn-grid {
         grid-template-columns: 1fr;
     }

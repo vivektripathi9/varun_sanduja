@@ -196,9 +196,13 @@
     .gpp-plans-grid {
         flex-direction: column;
     }
+    .gpp-plan-card {
+        flex-direction: column;
+    }
     .gpp-plan-content {
         flex: auto;
         background: none;
+        padding-right: 0;
     }
     .gpp-plan-image-wrapper {
         position: relative;
@@ -220,6 +224,24 @@
 }
 
 @media(max-width: 768px) {
+    .gpp-section {
+        padding: 40px 16px;
+    }
+    .gpp-plan-card {
+        padding: 24px;
+    }
+    .gpp-plan-name {
+        font-size: 22px;
+    }
+    .gpp-plan-price {
+        font-size: 18px;
+    }
+    .gpp-price-green, .gpp-price-purple {
+        font-size: 28px;
+    }
+    .gpp-plan-list li {
+        font-size: 14px;
+    }
     .gpp-reviews-grid {
         grid-template-columns: 1fr;
     }
@@ -227,6 +249,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+        padding: 24px;
     }
     .gpp-stars {
         justify-content: center;

@@ -135,3 +135,38 @@
         padding-top: 0;
     }
 }
+
+@media(max-width: 768px) {
+    .mym-section {
+        padding: 20px 16px 60px 16px;
+    }
+    .mym-content {
+        padding: 30px 20px;
+    }
+    .mym-title {
+        font-size: 28px;
+    }
+    .mym-role {
+        font-size: 16px;
+    }
+    .mym-list li {
+        font-size: 14px;
+    }
+    .mym-quote-box-wrapper {
+        padding: 20px;
+    }
+    .mym-quote-box {
+        padding: 20px 20px 20px 30px;
+    }
+    .mym-quote-mark {
+        font-size: 40px;
+        top: 10px;
+        left: 5px;
+    }
+    .mym-quote-text {
+        font-size: 16px;
+    }
+    .mym-signature {
+        font-size: 26px;
+    }
+}

@@ -221,6 +221,7 @@
 @media (max-width: 992px) {
   .pas-new-top-row {
     flex-direction: column;
+    align-items: center;
   }
   .pas-new-image-col {
     flex: none;
@@ -228,13 +229,26 @@
     max-width: 400px;
     margin: 0 auto;
   }
+  .pas-new-content-col {
+    align-items: center;
+    text-align: center;
+  }
+  .pas-new-header h2,
+  .pas-new-header p {
+    text-align: center;
+  }
   .pas-new-details-row {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
   }
   .pas-new-fee-card {
     width: 100%;
     max-width: 300px;
+  }
+  .pas-new-checklist {
+    text-align: left;
   }
 }
 

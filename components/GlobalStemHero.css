@@ -294,28 +294,53 @@
         position: relative;
         bottom: auto;
         right: auto;
-        margin-top: 40px;
-        flex-direction: column;
+        margin-top: 0px;
+        flex-direction: row;
         align-items: flex-start;
+        justify-content: space-around;
         padding: 24px;
         width: 100%;
         box-sizing: border-box;
     }
     
     .stem-hero-stat-divider {
-        width: 100%;
-        height: 1px;
+        width: 1px;
+        height: 60px;
+        align-self: center;
     }
 }
 
 @media(max-width: 768px) {
     .stem-hero-stats {
-        padding: 16px;
-        gap: 16px;
+        padding: 16px 12px;
+        gap: 8px;
     }
     
     .stem-hero-stat {
-        width: 100%;
+        width: auto;
+        flex: 1;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .stem-hero-stat-text {
+        align-items: center;
+    }
+
+    .stem-hero-stat-num {
+        font-size: 18px;
+    }
+
+    .stem-hero-stat-desc {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .stem-hero-stat-icon {
+        width: 32px;
+        height: 32px;
     }
 }
 
@@ -381,29 +406,44 @@
         position: relative;
         top: auto;
         right: auto;
-        margin-bottom: 30px;
-        align-self: flex-start;
+        margin-bottom: 0;
+        margin-top: -10px;
+        align-self: center;
         width: 100%;
         box-sizing: border-box;
+        order: 99;
     }
 }
 
 @media(max-width: 768px) {
     .stem-hero-top-badge {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 16px;
-        gap: 10px;
+        align-items: center;
+        padding: 24px;
+        gap: 16px;
+    }
+
+    .stem-hero-top-badge-text {
+        align-items: center;
+        text-align: center;
+    }
+
+    .stem-hero-top-badge-title {
+        font-size: 18px;
     }
 
     .stem-hero-top-badge-countries {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        width: 100%;
+        grid-template-columns: auto auto;
+        gap: 16px 32px;
+        width: auto;
+        justify-content: center;
+        justify-items: start;
+        font-size: 18px;
     }
 
     .stem-hero-top-badge-more {
-        text-align: left;
-        margin-top: 4px;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 16px;
     }
 }

@@ -89,10 +89,7 @@ export function GlobalStemHero() {
               <span className="stem-hero-stat-desc">Students<br />Mentored</span>
             </div>
           </div>
-          <div className="stem-hero-stat-divider" />
-          <div className="stem-hero-stat">
-            <BookOpen className="stem-hero-stat-icon stem-hero-stat-blue" />
-          </div>
+
           <div className="stem-hero-stat-divider" />
           <div className="stem-hero-stat">
             <GraduationCap className="stem-hero-stat-icon stem-hero-stat-orange" />

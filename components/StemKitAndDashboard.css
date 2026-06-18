@@ -92,6 +92,25 @@
     object-position: right bottom;
 }
 
+/* Dashboard Box Specific Styles */
+.skd-dashboard-title {
+    font-size: 32px;
+}
+
+.skd-dashboard-subtitle {
+    font-size: 22px;
+}
+
+.skd-dashboard-list li {
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.skd-dashboard-image {
+    object-position: center !important;
+}
+
+
 @media(max-width: 1400px) {
     .skd-container {
         flex-direction: column;

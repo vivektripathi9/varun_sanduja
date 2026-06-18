@@ -54,22 +54,22 @@ export function StemKitAndDashboard() {
         </div>
 
         {/* Right Box: Dashboard */}
-        <div className="skd-box">
-          <div className="skd-content">
-            <h2 className="skd-title">PARENT PROGRESS DASHBOARD</h2>
-            <p className="skd-subtitle">Stay informed. See your child grow.</p>
+        <div className="skd-box skd-dashboard-box">
+          <div className="skd-content skd-dashboard-content">
+            <h2 className="skd-title skd-dashboard-title">PARENT PROGRESS DASHBOARD</h2>
+            <p className="skd-subtitle skd-dashboard-subtitle">Stay informed. See your child grow.</p>
             
-            <ul className="skd-list">
+            <ul className="skd-list skd-dashboard-list">
               {dashboardItems.map((item, index) => (
                 <li key={index}>
-                  <CheckCircle2 size={24} className="skd-check" fill="#2fa742" color="white" />
+                  <CheckCircle2 size={28} className="skd-check" fill="#2fa742" color="white" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="skd-image-wrapper">
-            <Image src="/Performancetracking.png" alt="Parent Progress Dashboard" fill className="skd-image skd-image-bottom" />
+          <div className="skd-image-wrapper skd-dashboard-image-wrapper">
+            <Image src="/Performancetracking.png" alt="Parent Progress Dashboard" fill className="skd-image skd-dashboard-image" />
           </div>
         </div>
 

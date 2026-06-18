@@ -95,7 +95,7 @@ export function GlobalStemHero() {
             <GraduationCap className="stem-hero-stat-icon stem-hero-stat-orange" />
             <div className="stem-hero-stat-text">
               <span className="stem-hero-stat-desc">Founder Led by</span>
-              <span className="stem-hero-stat-num" style={{ color: '#153a84' }}>Varun Sanduja<br />(M.Tech)</span>
+              <span className="stem-hero-stat-num stem-hero-stat-name" style={{ color: '#153a84' }}>Varun Sanduja<br />(M.Tech)</span>
             </div>
           </div>
         </div>

@@ -157,4 +157,8 @@
         height: 250px;
         margin-top: 20px;
     }
+    .skd-dashboard-image-wrapper {
+        margin-top: 0px;
+        height: 220px;
+    }
 }

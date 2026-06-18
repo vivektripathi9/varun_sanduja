@@ -127,7 +127,7 @@
     }
 
     .stem-hero-subtext-title {
-        font-size: 28px;
+        font-size: 22px;
     }
 
     .stem-hero-buttons {
@@ -331,6 +331,11 @@
 
     .stem-hero-stat-num {
         font-size: 18px;
+    }
+
+    .stem-hero-stat-name {
+        font-size: 14px;
+        line-height: 1.2;
     }
 
     .stem-hero-stat-desc {
